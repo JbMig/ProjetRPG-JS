@@ -1,0 +1,82 @@
+@font-face {
+    font-family: "Breathe Fire";
+    src: url("/Fonts/BreatheFire-65pg.ttf") format("truetype");
+   }
+
+
+body {
+    margin: 0; /* Pour prendre tout l'écran */
+}
+
+#interface {
+    display:grid;
+    height: 100vh;  /* Pour prendre tout l'écran, demande pas pourquoi ça marche que ici et pas dans le body, je sais pas :v */
+    grid-template-rows: 17% 1fr 17%;
+}
+
+
+#haut, #bas {
+    background-color: #2D2524;
+}
+
+#canvas {
+    background-color: #483B3A;
+}
+
+/* HUD Inventaire a.k.a Pots / arme / coins... tout ce qu'on voudra mettre quoi */
+
+#haut {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+/* Le code pour placer les trucs sur l'HUD est horrible mais ça fonctionne kek */
+.inventaire {
+    display: grid;
+    margin-left: 425px;
+    grid-template-columns: 70px 70px 70px;
+    grid-template-rows: 70px 70px ;
+    align-items: center;
+}
+
+.inventaire > #sword {
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+.inventaire > #item2 {
+    margin-left: 72px;
+}
+
+.nbItem {
+    font-family: Breathe Fire;
+    color: white;
+}
+
+
+/* HUD Coeurs */
+
+.vie {
+    margin-right: 425px;
+}
+
+.vie > h1 {                    /* Pour mettre life bien au milieu au dessus des coeurs */
+    display: flex;
+    justify-content: center;
+}
+
+.LIFE {
+    font-family: Breathe Fire;
+    color: #DA4E38;
+}
+
+
+/* Bas de page a.k.a boite de dialogue */
+
+#bas > .dialogue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px; /* align-items ne fonctionne pas ? */
+}
