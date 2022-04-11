@@ -1,0 +1,158 @@
+/* Police d'écriture */
+
+@import url('http://fonts.cdnfonts.com/css/breathe-fire');
+
+#breathe_fire {
+    font-family: "Breathe Fire", sans-serif;
+    font-size: 40px;
+   }
+
+/* Settings de base de la page */ 
+
+body {
+    margin: 0; /* Pour prendre tout l'écran */
+}
+
+#interface {
+    display:grid;
+    height: 100vh;  /* Pour prendre tout l'écran */
+    grid-template-rows: 17% 1fr 29% 17%;
+}
+
+
+#haut, #bas {
+    background-color: #2D2524;
+}
+
+#centre, #press_enter {
+    background-color: #483B3A;
+}
+
+
+/* Haut avec titre du jeu */
+
+/* Déplacement du texte au centre */
+#haut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style du titre */ 
+#haut > h1 {
+    color: #EAD6CE;
+    text-shadow: 0 0 4px #715C5B, 0 0 4px #715C5B, 0 0 4px #715C5B, 0 0 4px #715C5B;
+    filter: drop-shadow(0px 4px 4px black);
+    font-size: 64px;
+}
+
+
+/* Centre avec movement et attack / Press enter */
+
+.rectangleZQSD {
+    height: 380px;
+    width: 570px;
+    background-color: #2D2524;
+}
+
+.rectangleATTACK {
+    height: 380px;
+    width: 380px;
+    background-color: #2D2524;
+}
+
+#centre {
+    display: grid;
+    /* Pour le placement des sections movement et attack */
+    grid-template-columns: 23% 570px 77px 380px 23% ;
+    grid-template-rows: 100px 380px;
+
+}
+
+#movement_rectangle {
+    /* Placement dans le centre */
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* Pour le placement dans le rectangle movement */
+    display: grid;
+    grid-template-rows: 43px 183px 40px 41px 73px;
+    
+}
+
+/* Placement des images dans le rectangle movement */
+#movement_images {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Placement du texte dans le rectangle movement */
+#movement_rectangle > h1 {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Sûrement possible autrement mais ça fonctionne */
+#separation {              
+    margin-left: 24px;      
+    margin-right: 24px;
+}
+
+
+#attack_rectangle {
+    /* Placement dans le centre */
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* Pour le placement dans le rectangle attack */
+    display: grid;
+    grid-template-rows: 146px 70px 50px 41px 73px;
+}
+
+/* Placement des images dans le rectangle attack */
+#attack_images {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Placement du texte dans le rectangle attack */
+#attack_rectangle > h1 {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Style du texte des rectangles */ 
+#movement_rectangle > h1, #attack_rectangle > h1 {
+    color: white;
+    text-shadow: 0 0 2px #715C5B, 0 0 2px #715C5B, 0 0 2px #715C5B, 0 0 2px #715C5B;
+    filter: drop-shadow(0px 4px 4px black);
+}
+
+/* Déplacement du texte au centre */
+#press_enter {
+    width: 100;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Style du texte press enter */ 
+#press_enter > h1 {
+    color: #EAD6CE;
+    text-shadow: 0 0 4px #2D2524, 0 0 4px #2D2524, 0 0 4px #2D2524, 0 0 4px #2D2524;
+    filter: drop-shadow(0px 4px 4px black);
+    font-size: 40px;
+}
+
