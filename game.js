@@ -24,7 +24,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i-1][j] !=0 && map[i-1][j] != 5 && map[i-1][j] != 6){
+                    else if (map[i-1][j] !=0 && map[i-1][j] !=7 && map[i-1][j] != 5 && map[i-1][j] != 6){
                         if (map[i-1][j] ==4){
                             // Si le joueur marche sur une clef la rajoute dans son inventaire
                             inventory.push("clef")
@@ -63,7 +63,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                   else if (map[i+1][j] !=0 && map[i+1][j] !=5 && map[i+1][j] !=6){
+                   else if (map[i+1][j] !=0 && map[i+1][j] !=7 && map[i+1][j] !=5 && map[i+1][j] !=6){
                     if (map[i+1][j] ==4){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         inventory.push("clef")
@@ -102,7 +102,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i][j-1] !=0 && map[i][j-1] != 5 && map[i][j-1] != 6){
+                    else if (map[i][j-1] !=0 && map[i][j-1] !=7 && map[i][j-1] != 5 && map[i][j-1] != 6){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         if (map[i][j-1] ==4){
                             inventory.push("clef")
@@ -140,7 +140,7 @@ function move() {
                 }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i][j+1] !=0 && map[i][j+1] != 5  && map[i][j+1] != 6){
+                    else if (map[i][j+1] !=0 && map[i][j+1] !=7 && map[i][j+1] != 5  && map[i][j+1] != 6){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         if (map[i][j+1] ==4){
                             inventory.push("clef")
@@ -246,8 +246,7 @@ function affmap(){
     for (let i=0; i<layer.length; i++){
         for (let j=0; j<layer[i].length; j++){
             if (layer[i][j] == 12){
-                ctx.fillStyle = 'red';
-                ctx.fillRect(x, y, width, height);
+                ctx.drawImage(img,18,63,17,17,x,y,width,height);
                 
             }
             x=x+50;
@@ -265,28 +264,44 @@ function affmap(){
         for (let j=0; j<map[i].length; j++){
 
             //Défini l'image qu'il faut par rapport au nombre qui correspond dans la liste map
-            if (map[i][j] == 2){
-                ctx.drawImage(img,50,50,150,700,x,y,width,height)
+            //mur horizontal
+            if (map[i][j] == 0){
+                ctx.drawImage(img,35,160,20,15,x,y,width,height);
                 
             }
+            //mur vertical
+            else if (map[i][j] == 7){
+                ctx.drawImage(img,11,125,15,20,x,y,width,height);
+                
+            }
+            //personnage
+            else if (map[i][j] == 2){
+                if (SpritePosition == 'droite'){
+                    ctx.drawImage(img,131,70,13,30,x,y,35,60)
+                }
+                else{
+                    ctx.drawImage(img,144,70,-13,30,x,y,35,60)
+                }
+                
+            }
+            //changement carte
             else if (map[i][j] == 3){
-                ctx.fillStyle = 'green';
-                ctx.fillRect(x, y, width, height);
+                ctx.drawImage(img,18,63,17,17,x,y,width,height);
                 
             }
+            //clef
             else if (map[i][j] == 4){
-                ctx.fillStyle = 'purple';
-                ctx.fillRect(x, y, width, height);
+                ctx.drawImage(img,285,15,25,15,x,y,40,height);
                 
             }
+            //pnj
             else if (map[i][j] == 5){
-                ctx.fillStyle = 'brown';
-                ctx.fillRect(x, y, width, height);
+                ctx.drawImage(img,130,230,13,30,x,y,35,60);
                 
             }
+            //porte
             else if (map[i][j] == 6){
-                ctx.fillStyle = 'gray';
-                ctx.fillRect(x, y, width, height);
+                ctx.drawImage(img,25,220,45,35,x,y,width,height);
                 
             }
             // Sépparationd des éléments en ligne
@@ -322,16 +337,16 @@ let MapGlobal = [
     [
     [
     [0,0,0,0,0],
-    [0,1,2,1,6],
-    [0,1,1,1,3],
-    [0,4,5,1,3],
+    [7,1,2,1,6],
+    [7,1,1,1,3],
+    [7,4,5,1,3],
     [0,0,0,0,0]
 ]
 ,[
     [0,0,0,0,0],
-    [3,1,0,1,0],
-    [3,1,0,1,0],
-    [3,1,1,1,0],
+    [3,1,7,1,7],
+    [3,1,7,1,7],
+    [3,1,1,1,7],
     [0,0,0,0,0]
 ]
 ]
@@ -339,7 +354,7 @@ let MapGlobal = [
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
-img.src='/ProjetRPG-JS/images_steven/unknown.png';
+img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
 
 // Carte de base
 let map = MapGlobal[k][m]
