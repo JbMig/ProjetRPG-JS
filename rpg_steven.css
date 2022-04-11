@@ -1,5 +1,7 @@
-@font-face {
-    font-family: "Breathe Fire";
+@import url('http://fonts.cdnfonts.com/css/breathe-fire');
+
+#breathe_fire {
+    font-family: "Breathe Fire", sans-serif;
     src: url("/Fonts/BreatheFire-65pg.ttf") format("truetype");
    }
 
@@ -10,7 +12,7 @@ body {
 
 #interface {
     display:grid;
-    height: 100vh;  /* Pour prendre tout l'écran, demande pas pourquoi ça marche que ici et pas dans le body, je sais pas :v */
+    height: 100vh;  /* Pour prendre tout l'écran */
     grid-template-rows: 17% 1fr 17%;
 }
 
@@ -50,7 +52,6 @@ body {
 }
 
 .nbItem {
-    font-family: Breathe Fire;
     color: white;
 }
 
@@ -67,7 +68,6 @@ body {
 }
 
 .LIFE {
-    font-family: Breathe Fire;
     color: #DA4E38;
 }
 
