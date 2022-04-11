@@ -339,7 +339,7 @@ let MapGlobal = [
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
-img.src='/front/images/unknown.png';
+img.src='/ProjetRPG-JS/images_steven/unknown.png';
 
 // Carte de base
 let map = MapGlobal[k][m]
