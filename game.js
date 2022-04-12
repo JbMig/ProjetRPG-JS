@@ -1,6 +1,6 @@
 function move() {
 
-    affmap()
+    
     action = window.event;
 
     // Si le joueur clique sur la flèche hau ou sur 'z'
@@ -41,6 +41,7 @@ function move() {
                 }
             }
         }
+        affmap()
     }
     // Si le joueur clique sur la flèche bas ou sur 's'
     else if (action.keyCode == '40' || action.keyCode =='83') {
@@ -79,6 +80,7 @@ function move() {
                 }
             }
         }
+        affmap()
     }
 
     // Si le joueur clique sur la flèche gauche ou sur 'q'
@@ -112,13 +114,14 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = map[i][j-1]
                         map[i][j-1] = 2;
+                        
                     }
-
                     affmap()
-                        return;
+                    return;
                 }    
             }         
         }
+        affmap()
     }
     // Si le joueur clique sur la flèche droite ou sur 'd'
     else if (action.keyCode == '39' || action.keyCode=='68') {
@@ -150,17 +153,13 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = map[i][j+1]
                         map[i][j+1] = 2;
-                        
-                    }
-
-                    affmap()
+                        affmap()
                         return;
-            
-                
+                    }
                 }
             }
         }
-
+        affmap()
     }
     
     // Barre d'space ou touche d'action
@@ -279,8 +278,14 @@ function affmap(){
                 if (SpritePosition == 'droite'){
                     ctx.drawImage(img,131,70,13,30,x,y,35,60)
                 }
-                else{
-                    ctx.drawImage(img,144,70,-13,30,x,y,35,60)
+                else if (SpritePosition == 'haut'){
+                    ctx.drawImage(img2,6,7,13,30,x,y,35,60)
+                }
+                else if (SpritePosition == 'bas'){
+                    ctx.drawImage(img2,6,32,13,30,x,y,35,60)
+                }
+                else {
+                    ctx.drawImage(img3,370,70,13,30,x,y,35,60)
                 }
                 
             }
@@ -318,45 +323,23 @@ function affmap(){
 
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
-let SpritePosition = 'bas';
+let SpritePosition = 'droite';
 let k = 0;
 let m = 0;
 // gestion de l'inventaire à voir de le mettre dans une classe
 let inventory = []
 let CasePlayer = 1;
-// arière plan de la carte
-let layer = [
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12]
-]
-// Toute les interaction de la carte
-let MapGlobal = [
-    [
-    [
-    [0,0,0,0,0],
-    [7,1,2,1,6],
-    [7,1,1,1,3],
-    [7,4,5,1,3],
-    [0,0,0,0,0]
-]
-,[
-    [0,0,0,0,0],
-    [3,1,7,1,7],
-    [3,1,7,1,7],
-    [3,1,1,1,7],
-    [0,0,0,0,0]
-]
-]
-];
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
 img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
+let img2 = new Image();
+img2.src = '/ProjetRPG-JS/images_steven/sprite-haut-bas.png'
+let img3 = new Image();
+img3.src = '/ProjetRPG-JS/images_steven/image_gauche.png'
 
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
+img.onload = function(){affmap();};
 document.onkeydown = move;
