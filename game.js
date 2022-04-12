@@ -41,6 +41,7 @@ function move() {
                 }
             }
         }
+        affmap()
     }
     // Si le joueur clique sur la flèche bas ou sur 's'
     else if (action.keyCode == '40' || action.keyCode =='83') {
@@ -79,6 +80,7 @@ function move() {
                 }
             }
         }
+        affmap()
     }
 
     // Si le joueur clique sur la flèche gauche ou sur 'q'
@@ -119,6 +121,7 @@ function move() {
                 }    
             }         
         }
+        affmap()
     }
     // Si le joueur clique sur la flèche droite ou sur 'd'
     else if (action.keyCode == '39' || action.keyCode=='68') {
@@ -151,8 +154,8 @@ function move() {
                         CasePlayer = map[i][j+1]
                         map[i][j+1] = 2;
                         affmap()
-                    }
                         return;
+                    }
                 }
             }
         }
