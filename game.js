@@ -324,33 +324,6 @@ let m = 0;
 // gestion de l'inventaire à voir de le mettre dans une classe
 let inventory = []
 let CasePlayer = 1;
-// arière plan de la carte
-let layer = [
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12],
-    [12,12,12,12,12]
-]
-// Toute les interaction de la carte
-let MapGlobal = [
-    [
-    [
-    [0,0,0,0,0],
-    [7,1,2,1,6],
-    [7,1,1,1,3],
-    [7,4,5,1,3],
-    [0,0,0,0,0]
-]
-,[
-    [0,0,0,0,0],
-    [3,1,7,1,7],
-    [3,1,7,1,7],
-    [3,1,1,1,7],
-    [0,0,0,0,0]
-]
-]
-];
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
