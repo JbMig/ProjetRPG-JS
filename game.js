@@ -1,6 +1,6 @@
 function move() {
 
-    affmap()
+    
     action = window.event;
 
     // Si le joueur clique sur la flèche hau ou sur 'z'
@@ -112,10 +112,10 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = map[i][j-1]
                         map[i][j-1] = 2;
+                        
                     }
-
                     affmap()
-                        return;
+                    return;
                 }    
             }         
         }
@@ -150,17 +150,13 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = map[i][j+1]
                         map[i][j+1] = 2;
-                        
+                        affmap()
                     }
-
-                    affmap()
                         return;
-            
-                
                 }
             }
         }
-
+        affmap()
     }
     
     // Barre d'space ou touche d'action
@@ -279,8 +275,11 @@ function affmap(){
                 if (SpritePosition == 'droite'){
                     ctx.drawImage(img,131,70,13,30,x,y,35,60)
                 }
-                else{
-                    ctx.drawImage(img,144,70,-13,30,x,y,35,60)
+                else if (SpritePosition == 'haut'){
+                    ctx.drawImage(img2,6,7,13,30,x,y,35,60)
+                }
+                else if (SpritePosition == 'bas'){
+                    ctx.drawImage(img2,6,32,13,30,x,y,35,60)
                 }
                 
             }
@@ -318,7 +317,7 @@ function affmap(){
 
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
-let SpritePosition = 'bas';
+let SpritePosition = 'droite';
 let k = 0;
 let m = 0;
 // gestion de l'inventaire à voir de le mettre dans une classe
@@ -328,6 +327,8 @@ let CasePlayer = 1;
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
 img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
+let img2 = new Image();
+img2.src = '/ProjetRPG-JS/images_steven/sprite-haut-bas.png'
 
 // Carte de base
 let map = MapGlobal[k][m]
