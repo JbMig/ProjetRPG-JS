@@ -332,4 +332,5 @@ img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
+img.onload = function(){affmap();};
 document.onkeydown = move;
