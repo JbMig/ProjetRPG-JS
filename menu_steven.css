@@ -15,8 +15,8 @@ body {
 
 #interface {
   display: grid;
-  height: 100vh; /* Pour prendre tout l'écran */
-  grid-template-rows: 15% 50% 20% 15%;
+  min-height: 100vh; /* Pour prendre tout l'écran */
+  grid-template-rows: 15% 70% 15%;
 }
 
 #haut,
@@ -31,6 +31,13 @@ body {
 
 /* Haut avec titre du jeu */
 
+/* Déplacement du logo à gauche */
+#haut a {
+  position: absolute;
+  left: 0;
+  margin-left: 10%;
+}
+
 /* Déplacement du texte au centre */
 #haut {
   display: flex;
@@ -39,7 +46,7 @@ body {
 }
 
 /* Style du titre */
-#haut > h1 {
+#haut h1 {
   color: #ead6ce;
   text-shadow: 0 0 4px #715c5b, 0 0 4px #715c5b, 0 0 4px #715c5b,
     0 0 4px #715c5b;
@@ -65,7 +72,7 @@ body {
   display: grid;
   /* Pour le placement des sections movement et attack */
   grid-template-columns: 25% 25% 10% 15% 25%;
-  grid-template-rows: 6.25rem 23.75rem;
+  grid-template-rows: 6.25rem 23.75rem 1fr 6.25rem;
   justify-items: center;
 }
 
@@ -140,11 +147,12 @@ body {
 
 /* Déplacement du texte press enter */
 #press_enter {
-  height: 100%;
-  padding-bottom: 6.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  justify-self: center;
+  align-self: center;
 }
 
 /* Style du texte press enter */

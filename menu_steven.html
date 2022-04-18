@@ -10,52 +10,39 @@
 
   <body>
     <div id="interface">
+      <div id="haut">
+        <h1 id="breathe_fire">Dungeon Crawler</h1>
 
-        <!-- Je pense assez lisible sans besoin de commentaires pour l'instant -->
-        <div id="haut">
-            <h1 id="breathe_fire">Dungeon Crawler</h1>
+        <a href="https://github.com/JbMig/ProjetRPG-JS">
+          <img src="./images_steven/github.png" />
+        </a>
+      </div>
+
+      <div id="centre">
+        <div class="rectangleZQSD" id="movement_rectangle">
+          <div id="movement_images">
+            <img src="./images_steven/ZQSD.png" />
+            <img id="separation" src="./images_steven/separation.png" />
+            <img src="./images_steven/Flèches.png" />
+          </div>
+          <h1 id="breathe_fire">MOVEMENT</h1>
         </div>
-            
 
-        <div id="centre">
-            <div class="rectangleZQSD" id="movement_rectangle">
-                <div id="movement_images">
-                    <img src="./images_steven/ZQSD.png"/>
-                    <img id="separation" src="./images_steven/separation.png"/>
-                    <img src="./images_steven/Flèches.png"/>
-                </div>
-                <h1 id="breathe_fire">MOVEMENT</h1>   
-            </div>
-
-            <div class="rectangleATTACK" id="attack_rectangle">
-                <div id="attack_images">
-                    <img src="./images_steven/spacebar.png"/>               
-                </div>
-                <h1 id="breathe_fire">ATTACK</h1>
-            </div>
-            
+        <div class="rectangleATTACK" id="attack_rectangle">
+          <div id="attack_images">
+            <img src="./images_steven/spacebar.png" />
+          </div>
+          <h1 id="breathe_fire">ATTACK</h1>
         </div>
 
         <div id="press_enter">
-            <h1 id="breathe_fire">- Press Enter -</h1>
+          <h1 id="breathe_fire">- Press Enter -</h1>
         </div>
-        
-        
-        <div id="bas">  
-        </div>
-        
-        
+      </div>
+
+      <div id="bas"></div>
     </div>
 
-   <script src="./switch_page.js"></script>
-
+    <script src="./switch_page.js"></script>
   </body>
-
 </html>
-
-<!--    Need à faire sur le menu
-
-    - Trouver comment bloquer la taille des éléments peu importe le grossissement de la page 
-
-    - Trouver comment aller sur la page du jeu sans reload le site ( avec petite anim ? -> recherches js / ajax ? )
-->
