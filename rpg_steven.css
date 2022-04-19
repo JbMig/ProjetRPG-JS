@@ -8,6 +8,13 @@
   margin: 0;
 }
 
+/* Font size dialogue */
+p {
+  font-size: 40px;
+  text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524,
+    0 0 4px #2d2524;
+}
+
 /* Settings de base de la page */
 
 body {
