@@ -305,7 +305,7 @@ function affmap(){
             }
             //clef
             else if (map[i][j] == 4){
-                ctx.drawImage(img,285,15,25,15,x,y,40,height);
+                ctx.drawImage(key,96,-10,30,40,x,y,30,40);
                 
             }
             //pnj
@@ -350,9 +350,11 @@ let img2 = new Image();
 img2.src = './images_steven/sprite-haut-bas.png'
 let img3 = new Image();
 img3.src = './images_steven/image_gauche.png'
-
+let key = new Image();
+key.src = './images_steven/KeyIcons.png'
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
 img.onload = function(){affmap();};
+key.onload = function(){affmap();};
 document.onkeydown = move;
