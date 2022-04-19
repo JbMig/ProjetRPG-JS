@@ -63,4 +63,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("./images_steven/texte zone.png");
+  background-size: 100%;
 }
