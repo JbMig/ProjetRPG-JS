@@ -93,7 +93,7 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j-1] == 3 || j == 0){
+                    if (map[i][j] == 3 || j == 0){
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m--;
@@ -132,7 +132,7 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j+1] == 3 || j==map.length-1){
+                    if (map[i][j] == 3 || j==map.length-1){
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m++;
@@ -331,11 +331,11 @@ let CasePlayer = 1;
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
-img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
+img.src='./images_steven/0x72_DungeonTilesetII_v1.4.png';
 let img2 = new Image();
-img2.src = '/ProjetRPG-JS/images_steven/sprite-haut-bas.png'
+img2.src = './images_steven/sprite-haut-bas.png'
 let img3 = new Image();
-img3.src = '/ProjetRPG-JS/images_steven/image_gauche.png'
+img3.src = './images_steven/image_gauche.png'
 
 // Carte de base
 let map = MapGlobal[k]
