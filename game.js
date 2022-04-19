@@ -13,12 +13,12 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i-1][j] == 3 || i == 0){
+                    if (i == 0){
                         map[i][j] = CasePlayer
-                        CasePlayer = 3 //pas le choix de le mettre en brut
+                        CasePlayer = 1 //pas le choix de le mettre en brut
                         k--;
                         map = MapGlobal[k][m]
-                        map[map.length - 2][j] = 2
+                        map[map.length - 1][j] = 2
                         affmap()
                         return;
                     }
@@ -53,13 +53,13 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i+1][j] == 3 || i==map.length + 1){
+                    if (i==map.length-1){
                         map[i][j] = CasePlayer
-                        CasePlayer = 3 //pas le choix de le mettre en brut
+                        CasePlayer = 1 //pas le choix de le mettre en brut
                         k++;
                         map = MapGlobal[k][m]
                         
-                        map[1][j] = 2
+                        map[0][j] = 2
                         affmap()
                         return;
                     }
@@ -94,12 +94,12 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j-1] == 3 || j == 0){
+                    if (j == 0){
                         map[i][j] = CasePlayer
-                        CasePlayer = 3 //pas le choix de le mettre en brut
+                        CasePlayer = 1 //pas le choix de le mettre en brut
                         m--;
                         map = MapGlobal[k][m]
-                        map[i][map.length-2] = 2
+                        map[i][map.length-1] = 2
                         affmap()
                         return;
                     }
@@ -133,12 +133,12 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j+1] == 3 || j==map.length-1){
+                    if (j==map.length-1){
                         map[i][j] = CasePlayer
-                        CasePlayer = 3 //pas le choix de le mettre en brut
+                        CasePlayer = 1 //pas le choix de le mettre en brut
                         m++;
                         map = MapGlobal[k][m]
-                        map[i][1] = 2
+                        map[i][0] = 2
                         affmap()
                         return;
                 }
@@ -177,7 +177,7 @@ function move() {
                     else if (map[i][j+1] == 6){
                         for(let n=0; n<inventory.length; n++){
                             if (inventory[n] == 'clef' && SpritePosition == 'haut'){
-                                map[i][j+1] = 3
+                                map[i][j+1] = 1
                                 affmap()
                                 }
                             }  
@@ -192,7 +192,7 @@ function move() {
                             // Si la case devant le personnage est une porte
                             for(let n=0; n<inventory.length; n++){
                                 if (inventory[n] == 'clef' && SpritePosition == 'bas'){
-                                    map[i][j+1] = 3
+                                    map[i][j+1] = 1
                                     affmap()
                                     }
                                 }  
@@ -208,7 +208,7 @@ function move() {
                             // Si la case devant le personnage est une porte
                             for(let n=0; n<inventory.length; n++){
                                 if (inventory[n] == 'clef' && SpritePosition == 'droite'){
-                                    map[i][j+1] = 3
+                                    map[i][j+1] = 1
                                     affmap()
                                 }
                             }  
@@ -223,7 +223,7 @@ function move() {
                             // Si la case devant le personnage est une porte
                             for(let n=0; n<inventory.length; n++){
                                 if (inventory[n] == 'clef' && SpritePosition == 'gauche'){
-                                    map[i][j+1] = 3
+                                    map[i][j+1] = 1
                                     affmap()
                                 }
                             }  
@@ -283,11 +283,6 @@ function affmap(){
                 else {
                     ctx.drawImage(img3,370,70,13,30,x,y,35,60)
                 }
-                
-            }
-            //changement carte
-            else if (map[i][j] == 3){
-                ctx.drawImage(img,18,63,17,17,x,y,width,height);
                 
             }
             //clef
