@@ -245,7 +245,7 @@ let isDialogue = false;
 function pnj(){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        zoneTexte.innerHTML = "<p id='breathe_fire' style='color:white'> Coucou, je suis un gentil dino </p>"
+        zoneTexte.innerHTML = "<p id='breathe_fire' style='color:white'> La princesse est dans un autre donjon. </p>"
     }
 }
 // Supprimer le dialogue si on ne parle pas
