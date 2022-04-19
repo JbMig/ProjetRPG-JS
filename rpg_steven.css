@@ -10,6 +10,7 @@
 
 /* Font size dialogue */
 p {
+  color: #ead6ce;
   font-size: 40px;
   text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524,
     0 0 4px #2d2524;
@@ -70,6 +71,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./images_steven/texte zone.png");
+  background-image: url("./images_steven/dialogue.png");
   background-size: 100%;
 }
