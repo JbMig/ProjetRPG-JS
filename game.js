@@ -239,13 +239,16 @@ function move() {
         }
     }
 }
+// Savoir si on est dans un dialogue ou non
 let isDialogue = false;
+// Pour parler avec un npc
 function pnj(){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
         zoneTexte.innerHTML = "<p id='breathe_fire' style='color:white'> Coucou, je suis un gentil dino </p>"
     }
 }
+// Supprimer le dialogue si on ne parle pas
 function suppDialogue () {
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == false ) {
