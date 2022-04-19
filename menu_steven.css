@@ -16,7 +16,7 @@ body {
 #interface {
   display: grid;
   min-height: 100vh; /* Pour prendre tout l'écran */
-  grid-template-rows: 15% 70% 15%;
+  grid-template-rows: 15.5% 69% 15.5%;
 }
 
 #haut,
@@ -58,21 +58,21 @@ body {
 
 .rectangleZQSD {
   height: 23.75rem;
-  width: 35.625rem;
+  width: 100%;
   background-color: #2d2524;
 }
 
 .rectangleATTACK {
   height: 23.75rem;
-  width: 23.75rem;
+  width: 100%;
   background-color: #2d2524;
 }
 
 #centre {
   display: grid;
   /* Pour le placement des sections movement et attack */
-  grid-template-columns: 25% 25% 10% 15% 25%;
-  grid-template-rows: 6.25rem 23.75rem 1fr 6.25rem;
+  grid-template-columns: 25% 25% 10% 20% 25%;
+  grid-template-rows: 1fr 23.75rem 1fr 1fr;
   justify-items: center;
 }
 
@@ -84,15 +84,28 @@ body {
   grid-row-end: 3;
   /* Pour le placement dans le rectangle movement */
   display: grid;
-  grid-template-rows: 2.688rem 11.438rem 2.5rem 2.563rem 4.563rem;
+  grid-template-rows: 2.688rem 1fr 3.125rem 2.563rem 4.563rem;
 }
 
 /* Placement des images dans le rectangle movement */
 #movement_images {
   grid-row-start: 2;
   grid-row-end: 3;
-  align-self: center;
-  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#movement_images img:not(#separation) {
+  width:40%;
+  height: auto;
+}
+
+#separation {
+  width: auto;
+  height: 8rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 /* Placement du texte dans le rectangle movement */
@@ -103,11 +116,7 @@ body {
   justify-self: center;
 }
 
-/* Sûrement possible autrement mais ça fonctionne */
-#separation {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
+
 
 #attack_rectangle {
   /* Placement dans le centre */
@@ -117,7 +126,7 @@ body {
   grid-row-end: 3;
   /* Pour le placement dans le rectangle attack */
   display: grid;
-  grid-template-rows: 9.125rem 4.375rem 3.125rem 2.563rem 4.563rem;
+  grid-template-rows: 2.688rem 1fr 3.125rem 2.563rem 4.563rem;
 }
 
 /* Placement des images dans le rectangle attack */
@@ -126,6 +135,11 @@ body {
   grid-row-end: 3;
   align-self: center;
   justify-self: center;
+}
+
+#attack_images img {
+  width:100%;
+  height: auto;
 }
 
 /* Placement du texte dans le rectangle attack */
