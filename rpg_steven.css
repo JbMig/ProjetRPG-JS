@@ -29,6 +29,8 @@ body {
 }
 
 
+/* Haut avec titre du jeu */
+
 /* Déplacement du logo à gauche */
 #haut a {
   position: absolute;
@@ -36,47 +38,20 @@ body {
   margin-left: 10%;
 }
 
-/* HUD Inventaire a.k.a Pots / arme / coins... tout ce qu'on voudra mettre quoi */
-
+/* Déplacement du texte au centre */
 #haut {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10.625rem;
 }
 
-.grid_col_span_2 {
-  grid-column: span 2;
-}
-
-.grid_row_span_2 {
-  grid-row: span 2;
-}
-
-.inventaire {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-}
-
-/* Mettre le nombre à côté des images */
-.content {
-  float: left;
-}
-
-h1 {
-  color: white;
-}
-
-/* HUD Coeurs */
-
-.vie h1 {
-  display: flex;
-  justify-content: center;
-}
-
-.LIFE {
-  color: #da4e38;
+/* Style du titre */
+#haut h1 {
+  color: #ead6ce;
+  text-shadow: 0 0 4px #715c5b, 0 0 4px #715c5b, 0 0 4px #715c5b,
+    0 0 4px #715c5b;
+  filter: drop-shadow(0px 4px 4px black);
+  font-size: 4rem;
 }
 
 /* Bas de page a.k.a boite de dialogue */
