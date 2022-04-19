@@ -3,7 +3,7 @@ function move() {
     
     action = window.event;
 
-    // Si le joueur clique sur la flèche hau ou sur 'z'
+    // Si le joueur clique sur la flèche haut ou sur 'z'
     if (action.keyCode == '38' || action.keyCode =='90') {
         // Change la position du sprite pour connaître la direction où il se tourne
         SpritePosition ='haut'
@@ -11,7 +11,7 @@ function move() {
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
                 //regarde où est le joueur sur la carte
-                if (map[i][j] == 2){
+                if (map[i-1][j] == 2){
                     // Regarde s'il y a un changement de carte
                     if (map[i][j] == 3 || i == 0){
                         map[i-1][j] = CasePlayer
@@ -53,12 +53,12 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j] == 3 || i==map.length + 1){
+                    if (map[i+1][j] == 3 || i==map.length + 1){
                         map[i+1][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         k++;
-                        map = MapGlobal[k][m]
-                        map[map.length - 1][j] = 2
+                        map = MapGlobal[k]
+                        map[0][j] = 2
                         affmap()
                         return;
                     }
@@ -97,7 +97,7 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m--;
-                        map = MapGlobal[k][m]
+                        map = MapGlobal[m]
                         map[i][map.length-1] = 2
                         affmap()
                         return;
@@ -136,7 +136,7 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m++;
-                        map = MapGlobal[k][m]
+                        map = MapGlobal[m]
                         map[i][0] = 2
                         affmap()
                         return;
@@ -317,8 +317,7 @@ function affmap(){
         x=0;
         y=y+50;
     }    
-    
-
+    console.log(map)
 }
 
 var canvas = document.querySelector('#plateau')
@@ -332,14 +331,14 @@ let CasePlayer = 1;
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
-img.src='./images_steven/0x72_DungeonTilesetII_v1.4.png'
+img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
 let img2 = new Image();
-img2.src = './images_steven/sprite-haut-bas.png'
+img2.src = '/ProjetRPG-JS/images_steven/sprite-haut-bas.png'
 let img3 = new Image();
-img3.src = './images_steven/image_gauche.png'
+img3.src = '/ProjetRPG-JS/images_steven/image_gauche.png'
 
 // Carte de base
-let map = MapGlobal[k][m]
+let map = MapGlobal[k]
 affmap()
 img.onload = function(){affmap();};
 document.onkeydown = move;
