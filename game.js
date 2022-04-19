@@ -18,7 +18,7 @@ function move() {
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         k--;
                         map = MapGlobal[k][m]
-                        map[map.length - 1][j] = 2
+                        map[map.length - 2][j] = 2
                         affmap()
                         return;
                     }
@@ -59,7 +59,7 @@ function move() {
                         k++;
                         map = MapGlobal[k][m]
                         
-                        map[0][j] = 2
+                        map[1][j] = 2
                         affmap()
                         return;
                     }
@@ -94,12 +94,12 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j] == 3 || j == 0){
+                    if (map[i][j-1] == 3 || j == 0){
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m--;
                         map = MapGlobal[k][m]
-                        map[i][map.length-1] = 2
+                        map[i][map.length-2] = 2
                         affmap()
                         return;
                     }
@@ -133,12 +133,12 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i][j] == 3 || j==map.length-1){
+                    if (map[i][j+1] == 3 || j==map.length-1){
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m++;
                         map = MapGlobal[k][m]
-                        map[i][0] = 2
+                        map[i][1] = 2
                         affmap()
                         return;
                 }
