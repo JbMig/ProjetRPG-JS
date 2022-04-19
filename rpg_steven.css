@@ -5,6 +5,7 @@
 #breathe_fire {
   font-family: "Breathe Fire", sans-serif;
   src: url("/Fonts/BreatheFire-65pg.ttf") format("truetype");
+  margin: 0;
 }
 
 /* Settings de base de la page */
@@ -15,8 +16,8 @@ body {
 
 #interface {
   display: grid;
-  min-height: 100vh; /* Pour prendre tout l'écran */
-  grid-template-rows: 1fr auto 1fr;
+  height: 100vh; /* Pour prendre tout l'écran */
+  grid-template-rows: 1fr auto 2fr;
 }
 
 #haut,
