@@ -268,11 +268,6 @@ function affmap(){
                 ctx.drawImage(img,35,160,20,15,x,y,width,height);
                 
             }
-            //mur vertical
-            else if (map[i][j] == 7){
-                ctx.drawImage(img,11,125,15,20,x,y,width,height);
-                
-            }
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
@@ -307,6 +302,11 @@ function affmap(){
             //porte
             else if (map[i][j] == 6){
                 ctx.drawImage(img,25,220,45,35,x,y,width,height);
+                
+            }
+            //mur vertical
+             else if (map[i][j] == 7){
+                ctx.drawImage(img,11,125,15,20,x,y,width,height);
                 
             }
             // Sépparationd des éléments en ligne
