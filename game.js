@@ -234,7 +234,7 @@ function move() {
     }
 }
 function pnj(){
-    alert("Bonjour, vous parlez à un pnj");
+    alert("La princesse est dans un autre donjon");
 }
 function affmap(){
     var x=0;
