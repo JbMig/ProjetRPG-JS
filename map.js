@@ -57,7 +57,7 @@ let MapGlobal =
         [0,0,0,0,0,0,0,0,0]
         ]
     ]
-        // fin X
+    // fin Ligne 1
 ,
 [
     // Ligne 2
@@ -97,4 +97,4 @@ let MapGlobal =
         ]
 ]
 ]
-   // fin Y
+    // fin Ligne 2
