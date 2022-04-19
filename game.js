@@ -332,11 +332,11 @@ let CasePlayer = 1;
 
 //Ecriture qui permet de mettre une image dans le canvas
 let img = new Image();
-img.src='/ProjetRPG-JS/images_steven/0x72_DungeonTilesetII_v1.4.png';
+img.src='./images_steven/0x72_DungeonTilesetII_v1.4.png'
 let img2 = new Image();
-img2.src = '/ProjetRPG-JS/images_steven/sprite-haut-bas.png'
+img2.src = './images_steven/sprite-haut-bas.png'
 let img3 = new Image();
-img3.src = '/ProjetRPG-JS/images_steven/image_gauche.png'
+img3.src = './images_steven/image_gauche.png'
 
 // Carte de base
 let map = MapGlobal[k][m]
