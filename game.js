@@ -58,7 +58,7 @@ function move() {
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         k++;
                         map = MapGlobal[k][m]
-                        map[4][j] = 2
+                        map[map.length - 1][j] = 2
                         affmap()
                         return;
                     }
@@ -98,7 +98,7 @@ function move() {
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m--;
                         map = MapGlobal[k][m]
-                        map[i][4] = 2
+                        map[i][map.length-1] = 2
                         affmap()
                         return;
                     }
