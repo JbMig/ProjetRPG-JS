@@ -2,7 +2,8 @@ function move() {
 
     
     action = window.event;
-
+    isDialogue = false;
+    suppDialogue();
     // Si le joueur clique sur la flèche haut ou sur 'z'
     if (action.keyCode == '38' || action.keyCode =='90') {
         // Change la position du sprite pour connaître la direction où il se tourne
@@ -171,6 +172,7 @@ function move() {
                     if (SpritePosition == "haut" ) {
                         // Si la case devant le personnage est un pnj
                         if (map[i-1][j] == 5){
+                            isDialogue = true;
                             pnj()
                         }
                         // Si la case devant le personnage est une porte
@@ -186,6 +188,7 @@ function move() {
                     else if (SpritePosition == "bas") {
                         // Si la case devant le personnage est un pnj
                         if (map[i+1][j] == 5){   
+                            isDialogue = true;
                             pnj()
                         }
                         else if (map[i+1][j] == 6){
@@ -202,6 +205,7 @@ function move() {
                     else if (SpritePosition == "droite") {
                         // Si la case devant le personnage est un pnj
                         if (map[i][j+1] == 5){
+                            isDialogue = true;
                             pnj()
                         }
                         else if (map[i][j+1] == 6){
@@ -217,6 +221,7 @@ function move() {
                     else if (SpritePosition == "gauche") {
                         // Si la case devant le personnage est un pnj
                         if (map[i][j-1] == 5){   
+                                isDialogue = true;
                                 pnj()
                         }
                         else if (map[i][j-1] == 6){
@@ -234,8 +239,18 @@ function move() {
         }
     }
 }
+let isDialogue = false;
 function pnj(){
-    alert("La princesse est dans un autre donjon");
+    let zoneTexte = document.querySelector("#bas");
+    if ( isDialogue == true ) {
+        zoneTexte.innerHTML = "<p style='color:white'> Coucou, je suis un gentil dino </p>"
+    }
+}
+function suppDialogue () {
+    let zoneTexte = document.querySelector("#bas");
+    if ( isDialogue == false ) {
+        zoneTexte.innerHTML = "";
+    } 
 }
 function affmap(){
     var x=0;
