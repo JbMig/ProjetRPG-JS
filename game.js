@@ -11,7 +11,7 @@ function move() {
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
                 //regarde où est le joueur sur la carte
-                if (map[i-1][j] == 2){
+                if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
                     if (map[i][j] == 3 || i == 0){
                         map[i-1][j] = CasePlayer
@@ -53,12 +53,12 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (map[i+1][j] == 3 || i==map.length + 1){
+                    if (map[i][j] == 3 || i==map.length + 1){
                         map[i+1][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         k++;
-                        map = MapGlobal[k]
-                        map[0][j] = 2
+                        map = MapGlobal[k][m]
+                        map[map.length - 1][j] = 2
                         affmap()
                         return;
                     }
@@ -97,7 +97,7 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m--;
-                        map = MapGlobal[m]
+                        map = MapGlobal[k][m]
                         map[i][map.length-1] = 2
                         affmap()
                         return;
@@ -136,7 +136,7 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = 3 //pas le choix de le mettre en brut
                         m++;
-                        map = MapGlobal[m]
+                        map = MapGlobal[k][m]
                         map[i][0] = 2
                         affmap()
                         return;
@@ -338,7 +338,7 @@ let img3 = new Image();
 img3.src = './images_steven/image_gauche.png'
 
 // Carte de base
-let map = MapGlobal[k]
+let map = MapGlobal[k][m]
 affmap()
 img.onload = function(){affmap();};
 document.onkeydown = move;
