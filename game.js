@@ -189,9 +189,10 @@ function move() {
                             if (inventory.includes('clef') && SpritePosition == 'haut'){
                                 map[i-1][j] = 1
                                 affmap()
+                                porteOuvert();
                                 }
                                 else {
-                                    porteOuvert();
+                                porteFermé();
                                 }
                             
                         }
@@ -208,9 +209,10 @@ function move() {
                                 if (inventory.includes('clef') && SpritePosition == 'bas'){
                                     map[i+1][j] = 1
                                     affmap()
+                                    porteOuvert();
                                     }
                                 else {
-                                    porteOuvert();
+                                    porteFermé();
                                 }    
                                 
                                 
@@ -229,9 +231,10 @@ function move() {
                                 if (inventory.includes('clef') && SpritePosition == 'droite'){
                                     map[i][j+1] = 1
                                     affmap()
+                                    porteOuvert();
                                 }
                                 else {
-                                    porteOuvert();
+                                    porteFermé();
                                 }
                         
                         }
@@ -247,9 +250,10 @@ function move() {
                                 if (inventory.includes('clef') && SpritePosition == 'gauche'){
                                     map[i][j-1] = 1
                                     affmap()
+                                    porteOuvert();
                                 }
                                 else {
-                                    porteOuvert();
+                                    porteFermé();
                                 }
                         }
                 }
@@ -296,9 +300,13 @@ function pnj(chiffre){
         }
     }
 }
-function porteOuvert () {
+function porteFermé () {
     let zoneTexte = document.querySelector("#bas");
     zoneTexte.innerHTML = "<p id='breathe_fire'> Vous n'avez pas de clé, du balai ! <p/>"
+}
+function porteOuvert () {
+    let zoneTexte = document.querySelector("#bas");
+    zoneTexte.innerHTML = "<p id='breathe_fire'> Félicitation, la porte a disparu !  <p/>"
 }
 
 // Supprimer le dialogue si on ne parle pas
