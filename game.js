@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16 , 17 ];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ];
 
 function move() {
 
@@ -264,34 +264,34 @@ let isDialogue = false;
 function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        if ( chiffre == 5) {
+        if ( chiffre == 30) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 17) {
+        else if ( chiffre == 32) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 9) {
+        else if ( chiffre == 31) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 10) {
+        else if ( chiffre == 33) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 11) {
+        else if ( chiffre == 34) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 12) {
+        else if ( chiffre == 35) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 13) {
+        else if ( chiffre == 36) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Enfant : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 14) {
+        else if ( chiffre == 37) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 15) {
+        else if ( chiffre == 38) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 16) {
+        else if ( chiffre == 39) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
         }
     }
