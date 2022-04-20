@@ -1,3 +1,5 @@
+let objetNonTraversable = [ 0, 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16 , 17 ];
+
 function move() {
 
     
@@ -25,7 +27,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i-1][j] !=0 && map[i-1][j] !=7 && map[i-1][j] != 5 && map[i-1][j] != 6){
+                    else if (!objetNonTraversable.includes(map[i-1][j])){
                         if (map[i-1][j] ==4){
                             // Si le joueur marche sur une clef la rajoute dans son inventaire
                             inventory.push("clef")
@@ -66,7 +68,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i+1][j] !=0 && map[i+1][j] !=7 && map[i+1][j] !=5 && map[i+1][j] !=6){
+                    else if (!objetNonTraversable.includes(map[i+1][j])){
                     if (map[i+1][j] ==4){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         inventory.push("clef")
@@ -106,7 +108,7 @@ function move() {
                     }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i][j-1] !=0 && map[i][j-1] !=7 && map[i][j-1] != 5 && map[i][j-1] != 6){
+                    else if (!objetNonTraversable.includes(map[i][j-1])){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         if (map[i][j-1] ==4){
                             inventory.push("clef")
@@ -145,7 +147,11 @@ function move() {
                 }
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
-                    else if (map[i][j+1] !=0 && map[i][j+1] !=7 && map[i][j+1] != 5  && map[i][j+1] != 6){
+                    // [5,6,7,8,9,10].includes(5) -> true // [5,6,7,8,9,10].includes(3) -> false
+                    // [5,6,7,8,9,10].includes(map[i][j+1]) -> true (pnj) ou false
+                    // ![5,6,7,8,9,10].includes(map[i][j+1]) -> true (tout ce qui n'est pas pnj)
+                    else if (!objetNonTraversable.includes(map[i][j+1])){
+                    // else if (map[i][j+1] !=0 && map[i][j+1] !=7 && map[i][j+1] != 5  && map[i][j+1] != 6){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
                         if (map[i][j+1] ==4){
                             inventory.push("clef")
@@ -171,7 +177,7 @@ function move() {
                 if (map[i][j] == 2){
                     if (SpritePosition == "haut" ) {
                         // Si la case devant le personnage est un pnj
-                        if (map[i-1][j] == 5){
+                        if (objetNonTraversable.includes(map[i-1][j])){
                             isDialogue = true;
                             pnj()
                         }
@@ -187,7 +193,7 @@ function move() {
                     }
                     else if (SpritePosition == "bas") {
                         // Si la case devant le personnage est un pnj
-                        if (map[i+1][j] == 5){   
+                        if (objetNonTraversable.includes(map[i+1][j])){   
                             isDialogue = true;
                             pnj()
                         }
@@ -204,7 +210,7 @@ function move() {
                     
                     else if (SpritePosition == "droite") {
                         // Si la case devant le personnage est un pnj
-                        if (map[i][j+1] == 5){
+                        if (objetNonTraversable.includes(map[i][j+1])){
                             isDialogue = true;
                             pnj()
                         }
@@ -220,7 +226,7 @@ function move() {
                     }
                     else if (SpritePosition == "gauche") {
                         // Si la case devant le personnage est un pnj
-                        if (map[i][j-1] == 5){   
+                        if (objetNonTraversable.includes(map[i][j-1])){   
                                 isDialogue = true;
                                 pnj()
                         }
@@ -245,7 +251,36 @@ let isDialogue = false;
 function pnj(){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
+        if ( typePnj == "dino vert") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "dino bleue") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "mage") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "sorcière") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "golem") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "ogre") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "enfant") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "homme") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "femme") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( typePnj == "plante") {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
+        }
     }
 }
 // Supprimer le dialogue si on ne parle pas
@@ -311,52 +346,52 @@ function affmap(){
             //pnj
             else if (map[i][j] == 5){
                 ctx.drawImage(img,130,235,13,25,x,y,20,35);
-                
+                typePnj = "dino vert";
             }
             //pnj
             else if (map[i][j] == 9){
                 ctx.drawImage(img,130,173,15,25,x,y,20,35);
-                
+                typePnj = "mage";
             }
             //pnj
             else if (map[i][j] == 17){
                 ctx.drawImage(img,128,205,17,25,x,y,20,35);
-                
+                typePnj = "dino bleue";
             }
             //pnj
             else if (map[i][j] == 10){
                 ctx.drawImage(img,128,140,15,25,x,y,20,35);
-                
+                typePnj = "sorcière";
             }
             //pnj
             else if (map[i][j] == 11){
                 ctx.drawImage(img,22,275,20,37,x,y,20,35);
-                
+                typePnj = "golem";
             }
             //pnj
             else if (map[i][j] == 12){
                 ctx.drawImage(img,22,325,20,35,x,y,20,35);
-                
+                typePnj = "ogre";
             }
             //pnj
             else if (map[i][j] == 13){
                 ctx.drawImage(img,370,81,13,18,x,y,20,35);
-                
+                typePnj = "enfant";
             }
             //pnj
             else if (map[i][j] == 14){
                 ctx.drawImage(img,128,17,15,20,x,y,20,35);
-                
+                typePnj = "homme";
             }
             //pnj
             else if (map[i][j] == 15){
                 ctx.drawImage(img,128,45,15,24,x,y,20,35);
-                
+                typePnj = "femme";
             }
             //pnj
             else if (map[i][j] == 16){
                 ctx.drawImage(img,370,143,12,23,x,y,20,35);
-                
+                typePnj = "plante";
             }
             //porte
             else if (map[i][j] == 6){
@@ -382,7 +417,17 @@ function affmap(){
     }    
     console.log(map)
 }
+let typePnj;
 
+typePnj = "dino vert";
+typePnj = "dino bleue";
+typePnj = "mage";
+typePnj = "sorcière";
+typePnj = "golem";
+typePnj = "ogre";
+typePnj = "homme";
+typePnj = "femme";
+typePnj = "plante";
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
