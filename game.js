@@ -21,7 +21,7 @@ function move() {
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         k--;
                         map = MapGlobal[k][m]
-                        map[map[i].length - 1][j] = 2
+                        map[map.length - 1][j] = 2
                         affmap()
                         return;
                     }
