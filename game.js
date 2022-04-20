@@ -403,57 +403,57 @@ function affmap(){
             }
             //pnj
             else if (map[i][j] == 30){
-                ctx.drawImage(img,130,235,13,25,x,y,20,height);
+                ctx.drawImage(img,130,237,16,19,x,y,30,35);
              
             }
             //pnj
             else if (map[i][j] == 31){
-                ctx.drawImage(img,130,173,15,25,x,y,20,height);
+                ctx.drawImage(img,130,177,15,14,x,y,30,35);
       
             }
             //pnj
             else if (map[i][j] == 32){
-                ctx.drawImage(img,128,205,17,25,x,y,20,height);
+                ctx.drawImage(img,128,205,17,25,x,y,30,35);
        
             }
             //pnj
             else if (map[i][j] == 33){
-                ctx.drawImage(img,128,140,15,25,x,y,20,height);
+                ctx.drawImage(img,128,140,15,25,x,y,30,35);
         
             }
             //pnj
             else if (map[i][j] == 34){
-                ctx.drawImage(img,22,275,20,37,x,y,20,height);
+                ctx.drawImage(img,22,275,20,37,x,y,30,35);
               
             }
             //pnj
             else if (map[i][j] == 35){
-                ctx.drawImage(img,22,325,20,35,x,y,20,height);
+                ctx.drawImage(img,22,325,20,35,x,y,30,35);
              
             }
             //pnj
             else if (map[i][j] == 36){
-                ctx.drawImage(img,370,81,13,18,x,y,20,height);
+                ctx.drawImage(img,370,81,13,18,x,y,30,35);
                
             }
             //pnj
             else if (map[i][j] == 37){
-                ctx.drawImage(img,128,17,15,20,x,y,20,height);
+                ctx.drawImage(img,128,17,15,20,x,y,30,35);
         
             }
             //pnj
             else if (map[i][j] == 38){
-                ctx.drawImage(img,128,45,15,24,x,y,20,height);
+                ctx.drawImage(img,128,45,15,24,x,y,30,35);
           
             }
             //pnj
             else if (map[i][j] == 39){
-                ctx.drawImage(img,370,143,12,23,x,y,20,height);
+                ctx.drawImage(img,370,143,12,23,x,y,30,35);
         
             }
             //porte
             else if (map[i][j] == 6){
-                ctx.drawImage(img,25,220,45,35,x,y,width,height);
+                ctx.drawImage(img,25,220,45,35,x,y,30,35);
                 
             }
             // Sépparationd des éléments en ligne
@@ -471,7 +471,7 @@ function affmap(){
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
-let k = 0;
+let k = 1;
 let m = 0;
 // gestion de l'inventaire à voir de le mettre dans une classe
 let inventory = []
