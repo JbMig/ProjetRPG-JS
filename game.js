@@ -21,7 +21,7 @@ function move() {
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         k--;
                         map = MapGlobal[k][m]
-                        map[map.length - 1][j] = 2
+                        map[map[i].length - 1][j] = 2
                         affmap()
                         return;
                     }
@@ -102,7 +102,7 @@ function move() {
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         m--;
                         map = MapGlobal[k][m]
-                        map[i][map.length-1] = 2
+                        map[i][map[i].length-1] = 2
                         affmap()
                         return;
                     }
@@ -317,7 +317,7 @@ function affmap(){
         for (let j=0; j<map[i].length; j++){
 
             //Défini l'image qu'il faut par rapport au nombre qui correspond dans la liste map
-            //mur horizontal
+            //mur horizontal haut
             if (map[i][j] == 0){
                 ctx.drawImage(img,36,125,22,15,x,y,width,height);
                 
@@ -332,11 +332,27 @@ function affmap(){
             }
             // coin haut gauche
             else if (map[i][j] == 8){
-                ctx.drawImage(img,32,125,12,15,x,y,width,height);
+                ctx.drawImage(img,28,125,12,15,x,y,width,height);
             }
             // coin haut droit
             else if (map[i][j] == 9){
                 ctx.drawImage(img,55,125,12,15,x,y,width,height);
+            }
+            // coin bas droit
+            else if (map[i][j] == 11){
+                ctx.drawImage(img,56,156.5,9.25,18,x,y,30,height);
+            }
+            //coin bas gauche
+            else if (map[i][j] == 12){
+                ctx.drawImage(img,28,156.5,12,18,x,y,width,height);
+            }
+            // intersection
+            else if (map[i][j] == 13){
+                ctx.drawImage(img,80,141,14,18,x,y,width,height);
+            }
+            // intersection 2
+            else if (map[i][j] == 14){
+                ctx.drawImage(img,70,140,10,17,x,y,25,height);
             }
             //personnage
             else if (map[i][j] == 2){
