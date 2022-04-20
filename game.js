@@ -179,7 +179,7 @@ function move() {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i-1][j])){
                             isDialogue = true;
-                            pnj()
+                            pnj(map[i-1][j])
                         }
                         // Si la case devant le personnage est une porte
                     else if (map[i][j+1] == 6){
@@ -195,7 +195,7 @@ function move() {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i+1][j])){   
                             isDialogue = true;
-                            pnj()
+                            pnj(map[i+1][j])
                         }
                         else if (map[i+1][j] == 6){
                             // Si la case devant le personnage est une porte
@@ -212,7 +212,7 @@ function move() {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i][j+1])){
                             isDialogue = true;
-                            pnj()
+                            pnj(map[i][j+1])
                         }
                         else if (map[i][j+1] == 6){
                             // Si la case devant le personnage est une porte
@@ -228,7 +228,7 @@ function move() {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i][j-1])){   
                                 isDialogue = true;
-                                pnj()
+                                pnj(map[i][j-1])
                         }
                         else if (map[i][j-1] == 6){
                             // Si la case devant le personnage est une porte
@@ -248,37 +248,37 @@ function move() {
 // Savoir si on est dans un dialogue ou non
 let isDialogue = false;
 // Pour parler avec un npc
-function pnj(){
+function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        if ( typePnj == "dino vert") {
+        if ( chiffre == 5) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "dino bleue") {
+        else if ( chiffre == 17) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "mage") {
+        else if ( chiffre == 9) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "sorcière") {
+        else if ( chiffre == 10) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "golem") {
+        else if ( chiffre == 11) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "ogre") {
+        else if ( chiffre == 12) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "enfant") {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
+        else if ( chiffre == 13) {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Enfant : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "homme") {
+        else if ( chiffre == 14) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "femme") {
+        else if ( chiffre == 15) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : La princesse est dans un autre donjon. </p>"
         }
-        else if ( typePnj == "plante") {
+        else if ( chiffre == 16) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
         }
     }
@@ -346,52 +346,52 @@ function affmap(){
             //pnj
             else if (map[i][j] == 5){
                 ctx.drawImage(img,130,235,13,25,x,y,20,35);
-                typePnj = "dino vert";
+             
             }
             //pnj
             else if (map[i][j] == 9){
                 ctx.drawImage(img,130,173,15,25,x,y,20,35);
-                typePnj = "mage";
+      
             }
             //pnj
             else if (map[i][j] == 17){
                 ctx.drawImage(img,128,205,17,25,x,y,20,35);
-                typePnj = "dino bleue";
+       
             }
             //pnj
             else if (map[i][j] == 10){
                 ctx.drawImage(img,128,140,15,25,x,y,20,35);
-                typePnj = "sorcière";
+        
             }
             //pnj
             else if (map[i][j] == 11){
                 ctx.drawImage(img,22,275,20,37,x,y,20,35);
-                typePnj = "golem";
+              
             }
             //pnj
             else if (map[i][j] == 12){
                 ctx.drawImage(img,22,325,20,35,x,y,20,35);
-                typePnj = "ogre";
+             
             }
             //pnj
             else if (map[i][j] == 13){
                 ctx.drawImage(img,370,81,13,18,x,y,20,35);
-                typePnj = "enfant";
+               
             }
             //pnj
             else if (map[i][j] == 14){
                 ctx.drawImage(img,128,17,15,20,x,y,20,35);
-                typePnj = "homme";
+        
             }
             //pnj
             else if (map[i][j] == 15){
                 ctx.drawImage(img,128,45,15,24,x,y,20,35);
-                typePnj = "femme";
+          
             }
             //pnj
             else if (map[i][j] == 16){
                 ctx.drawImage(img,370,143,12,23,x,y,20,35);
-                typePnj = "plante";
+        
             }
             //porte
             else if (map[i][j] == 6){
@@ -417,17 +417,16 @@ function affmap(){
     }    
     console.log(map)
 }
-let typePnj;
 
-typePnj = "dino vert";
-typePnj = "dino bleue";
-typePnj = "mage";
-typePnj = "sorcière";
-typePnj = "golem";
-typePnj = "ogre";
-typePnj = "homme";
-typePnj = "femme";
-typePnj = "plante";
+chiffre = "dino vert";
+chiffre = "dino bleue";
+chiffre = "mage";
+chiffre = "sorcière";
+chiffre = "golem";
+chiffre = "ogre";
+chiffre = "homme";
+chiffre = "femme";
+chiffre = "plante";
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
