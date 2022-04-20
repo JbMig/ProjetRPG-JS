@@ -90,7 +90,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"0x72_DungeonTilesetII_v1.3.tsx"
+         "source":"Tileset\/0x72_DungeonTilesetII_v1.3.tsx"
         }, 
         {
          "firstgid":1025,
