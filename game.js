@@ -56,7 +56,7 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (i==map[i].length-1){
+                    if (i==map.length-1){
                         map[i][j] = CasePlayer
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         k++;
@@ -322,6 +322,22 @@ function affmap(){
                 ctx.drawImage(img,36,125,22,15,x,y,width,height);
                 
             }
+            //mur vertical gauche
+            else if (map[i][j] == 7){
+                ctx.drawImage(img,32,140,4,15,x,y,10,height);         
+            }
+            //mur vertical droit
+            else if (map[i][j] == 10){
+                ctx.drawImage(img,28.5,140,8,15,x,y,25,height);         
+            }
+            // coin haut gauche
+            else if (map[i][j] == 8){
+                ctx.drawImage(img,32,125,12,15,x,y,width,height);
+            }
+            // coin haut droit
+            else if (map[i][j] == 9){
+                ctx.drawImage(img,55,125,12,15,x,y,width,height);
+            }
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
@@ -344,52 +360,52 @@ function affmap(){
                 
             }
             //pnj
-            else if (map[i][j] == 5){
+            else if (map[i][j] == 30){
                 ctx.drawImage(img,130,235,13,25,x,y,20,35);
              
             }
             //pnj
-            else if (map[i][j] == 9){
+            else if (map[i][j] == 31){
                 ctx.drawImage(img,130,173,15,25,x,y,20,35);
       
             }
             //pnj
-            else if (map[i][j] == 17){
+            else if (map[i][j] == 32){
                 ctx.drawImage(img,128,205,17,25,x,y,20,35);
        
             }
             //pnj
-            else if (map[i][j] == 10){
+            else if (map[i][j] == 33){
                 ctx.drawImage(img,128,140,15,25,x,y,20,35);
         
             }
             //pnj
-            else if (map[i][j] == 11){
+            else if (map[i][j] == 34){
                 ctx.drawImage(img,22,275,20,37,x,y,20,35);
               
             }
             //pnj
-            else if (map[i][j] == 12){
+            else if (map[i][j] == 35){
                 ctx.drawImage(img,22,325,20,35,x,y,20,35);
              
             }
             //pnj
-            else if (map[i][j] == 13){
+            else if (map[i][j] == 36){
                 ctx.drawImage(img,370,81,13,18,x,y,20,35);
                
             }
             //pnj
-            else if (map[i][j] == 14){
+            else if (map[i][j] == 37){
                 ctx.drawImage(img,128,17,15,20,x,y,20,35);
         
             }
             //pnj
-            else if (map[i][j] == 15){
+            else if (map[i][j] == 38){
                 ctx.drawImage(img,128,45,15,24,x,y,20,35);
           
             }
             //pnj
-            else if (map[i][j] == 16){
+            else if (map[i][j] == 39){
                 ctx.drawImage(img,370,143,12,23,x,y,20,35);
         
             }
@@ -397,15 +413,6 @@ function affmap(){
             else if (map[i][j] == 6){
                 ctx.drawImage(img,25,220,45,35,x,y,width,height);
                 
-            }
-            //mur vertical
-            else if (map[i][j] == 7){
-                ctx.drawImage(img,32,140,4,15,x,y,10,height);
-                
-            }
-            // mur diagonale
-            else if (map[i][j] == 8){
-                ctx.drawImage(img,32,125,12,15,x,y,width,height);
             }
             // Sépparationd des éléments en ligne
             x=x+35;
