@@ -310,7 +310,52 @@ function affmap(){
             }
             //pnj
             else if (map[i][j] == 5){
-                ctx.drawImage(img,130,230,13,30,x,y,35,60);
+                ctx.drawImage(img,130,235,13,25,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 9){
+                ctx.drawImage(img,130,173,15,25,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 17){
+                ctx.drawImage(img,128,205,17,25,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 10){
+                ctx.drawImage(img,128,140,15,25,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 11){
+                ctx.drawImage(img,22,275,20,37,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 12){
+                ctx.drawImage(img,22,325,20,35,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 13){
+                ctx.drawImage(img,370,81,13,18,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 14){
+                ctx.drawImage(img,128,17,15,20,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 15){
+                ctx.drawImage(img,128,45,15,24,x,y,35,60);
+                
+            }
+            //pnj
+            else if (map[i][j] == 16){
+                ctx.drawImage(img,370,143,12,23,x,y,35,60);
                 
             }
             //porte
