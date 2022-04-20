@@ -14,14 +14,12 @@ let layer = [
     [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12]
 ]
 // Toute les interaction de la carte
-//0 : murs horizontaux
+//0/10/8/9/11/12/13/14 : murs horizontaux
 //1 : route
 //2 : personnage
-//3 : changement de carte
 //4 : clefs
-//5 : pnj
+//30 - 39: pnj
 //6 : porte
-//7 : murs verticaux
 let MapGlobal = 
 [
    [ // ligne 1
