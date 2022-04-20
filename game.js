@@ -176,68 +176,81 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     if (SpritePosition == "haut" ) {
+                        console.log("coucoué")
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i-1][j])){
                             isDialogue = true;
                             pnj(map[i-1][j])
                         }
                         // Si la case devant le personnage est une porte
-                    else if (map[i][j+1] == 6){
-                        for(let n=0; n<inventory.length; n++){
-                            if (inventory[n] == 'clef' && SpritePosition == 'haut'){
-                                map[i][j+1] = 1
+                        if (map[i-1][j] == 6){
+                            console.log("coucou")
+                            console.log(inventory)
+                            if (inventory.includes('clef') && SpritePosition == 'haut'){
+                                map[i-1][j] = 1
                                 affmap()
                                 }
-                            }  
+                                else {
+                                    porteOuvert();
+                                }
+                            
                         }
                     }
-                    else if (SpritePosition == "bas") {
+                    if (SpritePosition == "bas") {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i+1][j])){   
                             isDialogue = true;
                             pnj(map[i+1][j])
                         }
-                        else if (map[i+1][j] == 6){
+                        if (map[i+1][j] == 6){
                             // Si la case devant le personnage est une porte
-                            for(let n=0; n<inventory.length; n++){
-                                if (inventory[n] == 'clef' && SpritePosition == 'bas'){
-                                    map[i][j+1] = 1
+                  
+                                if (inventory.includes('clef') && SpritePosition == 'bas'){
+                                    map[i+1][j] = 1
                                     affmap()
                                     }
-                                }  
+                                else {
+                                    porteOuvert();
+                                }    
+                                
+                                
                             }
                         }
                     
-                    else if (SpritePosition == "droite") {
+                    if (SpritePosition == "droite") {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i][j+1])){
                             isDialogue = true;
                             pnj(map[i][j+1])
                         }
-                        else if (map[i][j+1] == 6){
+                        if (map[i][j+1] == 6){
                             // Si la case devant le personnage est une porte
-                            for(let n=0; n<inventory.length; n++){
-                                if (inventory[n] == 'clef' && SpritePosition == 'droite'){
+                     
+                                if (inventory.includes('clef') && SpritePosition == 'droite'){
                                     map[i][j+1] = 1
                                     affmap()
                                 }
-                            }  
+                                else {
+                                    porteOuvert();
+                                }
+                        
                         }
                     }
-                    else if (SpritePosition == "gauche") {
+                    if (SpritePosition == "gauche") {
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i][j-1])){   
                                 isDialogue = true;
                                 pnj(map[i][j-1])
                         }
-                        else if (map[i][j-1] == 6){
+                        if (map[i][j-1] == 6){
                             // Si la case devant le personnage est une porte
-                            for(let n=0; n<inventory.length; n++){
-                                if (inventory[n] == 'clef' && SpritePosition == 'gauche'){
-                                    map[i][j+1] = 1
+                                if (inventory.includes('clef') && SpritePosition == 'gauche'){
+                                    map[i][j-1] = 1
                                     affmap()
                                 }
-                            }  
+                                else {
+                                    porteOuvert();
+                                }
                         }
                 }
             }
@@ -283,6 +296,11 @@ function pnj(chiffre){
         }
     }
 }
+function porteOuvert () {
+    let zoneTexte = document.querySelector("#bas");
+    zoneTexte.innerHTML = "<p id='breathe_fire'> Vous n'avez pas de clé, du balai ! <p/>"
+}
+
 // Supprimer le dialogue si on ne parle pas
 function suppDialogue () {
     let zoneTexte = document.querySelector("#bas");
@@ -441,15 +459,7 @@ function affmap(){
     console.log(map)
 }
 
-chiffre = "dino vert";
-chiffre = "dino bleue";
-chiffre = "mage";
-chiffre = "sorcière";
-chiffre = "golem";
-chiffre = "ogre";
-chiffre = "homme";
-chiffre = "femme";
-chiffre = "plante";
+
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
