@@ -258,8 +258,8 @@ function suppDialogue () {
 function affmap(){
     var x=0;
     var y=0;
-    var width = 50;
-    var height = 50;
+    var width = 35;
+    var height = 35;
     //Permet de remplir un canvas par rapport à la liste de layer
     for (let i=0; i<layer.length; i++){
         for (let j=0; j<layer[i].length; j++){
@@ -267,11 +267,11 @@ function affmap(){
                 ctx.drawImage(img,18,63,17,17,x,y,width,height);
                 
             }
-            x=x+50;
+            x=x+35;
         }
 
         x=0;
-        y=y+50;
+        y=y+35;
     }
     var x=0;
     var y=0; 
@@ -284,78 +284,78 @@ function affmap(){
             //Défini l'image qu'il faut par rapport au nombre qui correspond dans la liste map
             //mur horizontal
             if (map[i][j] == 0){
-                ctx.drawImage(img,35,160,20,15,x,y,width,height);
+                ctx.drawImage(img,36,125,22,15,x,y,width,height);
                 
             }
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
-                    ctx.drawImage(img,131,70,13,30,x,y,35,60)
+                    ctx.drawImage(img,131,70,13,30,x,y,20,35)
                 }
                 else if (SpritePosition == 'haut'){
-                    ctx.drawImage(img2,6,7,13,30,x,y,35,60)
+                    ctx.drawImage(img2,6,7,13,30,x,y,20,35)
                 }
                 else if (SpritePosition == 'bas'){
-                    ctx.drawImage(img2,6,32,13,30,x,y,35,60)
+                    ctx.drawImage(img2,6,32,13,30,x,y,20,35)
                 }
                 else {
-                    ctx.drawImage(img3,370,70,13,30,x,y,35,60)
+                    ctx.drawImage(img3,370,70,13,30,x,y,20,35)
                 }
                 
             }
             //clef
             else if (map[i][j] == 4){
-                ctx.drawImage(key,96,-10,30,40,x,y,30,40);
+                ctx.drawImage(key,96,-10,30,40,x,y,30,30);
                 
             }
             //pnj
             else if (map[i][j] == 5){
-                ctx.drawImage(img,130,235,13,25,x,y,35,60);
+                ctx.drawImage(img,130,235,13,25,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 9){
-                ctx.drawImage(img,130,173,15,25,x,y,35,60);
+                ctx.drawImage(img,130,173,15,25,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 17){
-                ctx.drawImage(img,128,205,17,25,x,y,35,60);
+                ctx.drawImage(img,128,205,17,25,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 10){
-                ctx.drawImage(img,128,140,15,25,x,y,35,60);
+                ctx.drawImage(img,128,140,15,25,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 11){
-                ctx.drawImage(img,22,275,20,37,x,y,35,60);
+                ctx.drawImage(img,22,275,20,37,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 12){
-                ctx.drawImage(img,22,325,20,35,x,y,35,60);
+                ctx.drawImage(img,22,325,20,35,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 13){
-                ctx.drawImage(img,370,81,13,18,x,y,35,60);
+                ctx.drawImage(img,370,81,13,18,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 14){
-                ctx.drawImage(img,128,17,15,20,x,y,35,60);
+                ctx.drawImage(img,128,17,15,20,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 15){
-                ctx.drawImage(img,128,45,15,24,x,y,35,60);
+                ctx.drawImage(img,128,45,15,24,x,y,20,35);
                 
             }
             //pnj
             else if (map[i][j] == 16){
-                ctx.drawImage(img,370,143,12,23,x,y,35,60);
+                ctx.drawImage(img,370,143,12,23,x,y,20,35);
                 
             }
             //porte
@@ -364,17 +364,21 @@ function affmap(){
                 
             }
             //mur vertical
-             else if (map[i][j] == 7){
-                ctx.drawImage(img,11,125,15,20,x,y,width,height);
+            else if (map[i][j] == 7){
+                ctx.drawImage(img,32,140,4,15,x,y,10,height);
                 
             }
+            // mur diagonale
+            else if (map[i][j] == 8){
+                ctx.drawImage(img,32,125,12,15,x,y,width,height);
+            }
             // Sépparationd des éléments en ligne
-            x=x+50;
+            x=x+35;
         }
         // Sépparationd des éléments en colonne
 
         x=0;
-        y=y+50;
+        y=y+35;
     }    
     console.log(map)
 }
