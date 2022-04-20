@@ -403,57 +403,57 @@ function affmap(){
             }
             //pnj
             else if (map[i][j] == 30){
-                ctx.drawImage(img,130,235,13,25,x,y,20,45);
+                ctx.drawImage(img,130,235,13,25,x,y,20,height);
              
             }
             //pnj
             else if (map[i][j] == 31){
-                ctx.drawImage(img,130,173,15,25,x,y,20,45);
+                ctx.drawImage(img,130,173,15,25,x,y,20,height);
       
             }
             //pnj
             else if (map[i][j] == 32){
-                ctx.drawImage(img,128,205,17,25,x,y,20,45);
+                ctx.drawImage(img,128,205,17,25,x,y,20,height);
        
             }
             //pnj
             else if (map[i][j] == 33){
-                ctx.drawImage(img,128,140,15,25,x,y,20,45);
+                ctx.drawImage(img,128,140,15,25,x,y,20,height);
         
             }
             //pnj
             else if (map[i][j] == 34){
-                ctx.drawImage(img,22,275,20,37,x,y,20,45);
+                ctx.drawImage(img,22,275,20,37,x,y,20,height);
               
             }
             //pnj
             else if (map[i][j] == 35){
-                ctx.drawImage(img,22,325,20,35,x,y,20,45);
+                ctx.drawImage(img,22,325,20,35,x,y,20,height);
              
             }
             //pnj
             else if (map[i][j] == 36){
-                ctx.drawImage(img,370,81,13,18,x,y,20,45);
+                ctx.drawImage(img,370,81,13,18,x,y,20,height);
                
             }
             //pnj
             else if (map[i][j] == 37){
-                ctx.drawImage(img,128,17,15,20,x,y,20,45);
+                ctx.drawImage(img,128,17,15,20,x,y,20,height);
         
             }
             //pnj
             else if (map[i][j] == 38){
-                ctx.drawImage(img,128,45,15,24,x,y,20,45);
+                ctx.drawImage(img,128,45,15,24,x,y,20,height);
           
             }
             //pnj
             else if (map[i][j] == 39){
-                ctx.drawImage(img,370,143,12,23,x,y,20,45);
+                ctx.drawImage(img,370,143,12,23,x,y,20,height);
         
             }
             //porte
             else if (map[i][j] == 6){
-                ctx.drawImage(img,25,220,45,35,x,y,width,45);
+                ctx.drawImage(img,25,220,45,35,x,y,width,height);
                 
             }
             // Sépparationd des éléments en ligne
