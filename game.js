@@ -366,7 +366,7 @@ function affmap(){
             }
             // coin bas droit
             else if (map[i][j] == 11){
-                ctx.drawImage(img,56,156.5,9.25,18,x,y,30,height);
+                ctx.drawImage(img,55,157,12,15,x,y,width,height);
             }
             //coin bas gauche
             else if (map[i][j] == 12){
@@ -383,16 +383,16 @@ function affmap(){
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
-                    ctx.drawImage(img,131,70,13,30,x,y,20,45)
+                    ctx.drawImage(img,178,78,15,18,x,y,30,35)
                 }
                 else if (SpritePosition == 'haut'){
-                    ctx.drawImage(img2,6,7,13,30,x,y,20,45)
+                    ctx.drawImage(img2,52,11,16,20,x,y,30,35)
                 }
                 else if (SpritePosition == 'bas'){
-                    ctx.drawImage(img2,6,32,13,30,x,y,20,45)
+                    ctx.drawImage(img2,67,35,14,20,x,y,30,35)
                 }
                 else {
-                    ctx.drawImage(img3,370,70,13,30,x,y,20,45)
+                    ctx.drawImage(img3,320,78,15,18,x,y,30,35)
                 }
                 
             }
