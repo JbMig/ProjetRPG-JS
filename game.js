@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13 ];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23];
 
 function move() {
 
@@ -183,11 +183,17 @@ function move() {
                             pnj(map[i-1][j])
                         }
                         // Si la case devant le personnage est une porte
-                        if (map[i-1][j] == 6){
-                            console.log("coucou")
+                        if (map[i-1][j] == 6 || map[i-1][j] == 3){
                             console.log(inventory)
                             if (inventory.includes('clef') && SpritePosition == 'haut'){
+                                if (map[i-1][j] == 6){
                                 map[i-1][j] = 1
+                                map[i-1][j+1] = 1
+                                }
+                                else {
+                                    map[i-1][j] = 1
+                                    map[i-1][j-1] = 1
+                                }
                                 affmap()
                                 porteOuvert();
                                 }
@@ -203,11 +209,18 @@ function move() {
                             isDialogue = true;
                             pnj(map[i+1][j])
                         }
-                        if (map[i+1][j] == 6){
+                        if (map[i+1][j] == 6 || map[i+1][j] == 3){
                             // Si la case devant le personnage est une porte
                   
                                 if (inventory.includes('clef') && SpritePosition == 'bas'){
-                                    map[i+1][j] = 1
+                                    if (map[i+1][j] == 6){
+                                        map[i+1][j] = 1
+                                        map[i+1][j+1] = 1
+                                    }
+                                    else {
+                                        map[i+1][j] = 1
+                                        map[i+1][j-1] = 1
+                                    }
                                     affmap()
                                     porteOuvert();
                                     }
@@ -225,11 +238,18 @@ function move() {
                             isDialogue = true;
                             pnj(map[i][j+1])
                         }
-                        if (map[i][j+1] == 6){
+                        if (map[i][j+1] == 6 || map[i][j+1] == 3){
                             // Si la case devant le personnage est une porte
                      
                                 if (inventory.includes('clef') && SpritePosition == 'droite'){
-                                    map[i][j+1] = 1
+                                    if (map[i][j+1] == 6){
+                                        map[i][j+1] = 1
+                                        map[i+1][j+1] =1
+                                    }
+                                    else {
+                                        map[i][j+1] = 1
+                                        map[i-1][j+1] =1
+                                    }
                                     affmap()
                                     porteOuvert();
                                 }
@@ -245,10 +265,18 @@ function move() {
                                 isDialogue = true;
                                 pnj(map[i][j-1])
                         }
-                        if (map[i][j-1] == 6){
+                        if (map[i][j-1] == 6 || map[i][j-1] == 3){
                             // Si la case devant le personnage est une porte
                                 if (inventory.includes('clef') && SpritePosition == 'gauche'){
-                                    map[i][j-1] = 1
+                                    if (map[i][j-1] == 6){
+                                        map[i][j-1] = 1
+                                        map[i-1][j-1] = 1
+                                    }
+                                    else{
+                                        map[i][j-1] = 1
+                                        map[i+1][j-1] = 1
+                                    }
+                                    
                                     affmap()
                                     porteOuvert();
                                 }
@@ -280,7 +308,7 @@ function pnj(chiffre){
         else if ( chiffre == 33) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 34) {
+        else if ( chiffre == 34 || chiffre == 44) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 35) {
@@ -380,6 +408,10 @@ function affmap(){
             else if (map[i][j] == 14){
                 ctx.drawImage(img,70,140,10,17,x,y,25,height);
             }
+            // vide
+            else if (map[i][j] == 23){
+                ctx.drawImage(hole,0,0,1,1,x,y,width,height);
+            }
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
@@ -423,7 +455,7 @@ function affmap(){
             }
             //pnj
             else if (map[i][j] == 34){
-                ctx.drawImage(img,22,275,20,37,x,y,30,35);
+                ctx.drawImage(img,22,275,22,37,x,y,50,70);
               
             }
             //pnj
@@ -451,9 +483,14 @@ function affmap(){
                 ctx.drawImage(img,370,143,12,23,x,y,30,35);
         
             }
-            //porte
+            //porte gauche
             else if (map[i][j] == 6){
-                ctx.drawImage(img,25,220,45,35,x,y,30,35);
+                ctx.drawImage(img,31,220,15,35,x,y,width,height);
+                
+            }
+            //porte droite
+            else if (map[i][j] == 3){
+                ctx.drawImage(img,52,220,15,35,x,y,width,height);
                 
             }
             // Sépparationd des éléments en ligne
@@ -481,14 +518,17 @@ let CasePlayer = 1;
 let img = new Image();
 img.src='./images_steven/0x72_DungeonTilesetII_v1.4.png';
 let img2 = new Image();
-img2.src = './images_steven/sprite-haut-bas.png'
+img2.src = './images_steven/sprite-haut-bas.png';
 let img3 = new Image();
-img3.src = './images_steven/image_gauche.png'
+img3.src = './images_steven/image_gauche.png';
 let key = new Image();
-key.src = './images_steven/KeyIcons.png'
+key.src = './images_steven/KeyIcons.png';
+let  hole = new Image();
+hole.src = './maps/Tileset/black_square_pnj.png';
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
 img.onload = function(){affmap();};
 key.onload = function(){affmap();};
+hole.onload = function(){affmap();};
 document.onkeydown = move;
