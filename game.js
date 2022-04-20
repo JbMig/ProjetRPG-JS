@@ -165,7 +165,7 @@ function move() {
     }
     
     // Barre d'space ou touche d'action
-    else if (action.keyCode='32'){
+    else if (action.keyCode == '32'){
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
@@ -245,7 +245,7 @@ let isDialogue = false;
 function pnj(){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        zoneTexte.innerHTML = "<p id='breathe_fire'> La princesse est dans un autre donjon. </p>"
+        zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
     }
 }
 // Supprimer le dialogue si on ne parle pas
