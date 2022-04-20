@@ -56,7 +56,7 @@ function move() {
                 //regarde où est le joueur sur la carte
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (i==map.length-1){
+                    if (i==map[i].length-1){
                         map[i][j] = CasePlayer
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         k++;
@@ -136,7 +136,7 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
-                    if (j==map.length-1){
+                    if (j==map[i].length-1){
                         map[i][j] = CasePlayer
                         CasePlayer = 1 //pas le choix de le mettre en brut
                         m++;
