@@ -2,6 +2,11 @@ let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
 
+document.getElementById("test_q1").hidden = true;
+document.getElementById("test_q2").hidden = true;
+document.getElementById("test_q3").hidden = true;
+document.getElementById("test_q4").hidden = true;
+
 function move() {
     
     action = window.event;
@@ -315,7 +320,8 @@ function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
         if ( chiffre == 30) {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>";
+			document.getElementById("test_q1").hidden = false; // pourquoi ça marche pas ? T_T
         }
         else if ( chiffre == 31) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
@@ -385,6 +391,7 @@ function pnj(chiffre){
         }
         else if ( chiffre == 43 || chiffre == 52) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : La princesse est dans un autre donjon. </p>"
+			
         }
     }
 }
@@ -420,7 +427,7 @@ function obtenirObjet (number) {
  function openInventory () {
     let zoneTexte = document.querySelector("#bas");
     if (inventory.length == 0) {
-        zoneTexte.innerHTML = "<p id='breathe_fire'> Vous avez rien dans votre inventaire ! </p>"
+        zoneTexte.innerHTML = "<p id='breathe_fire'> Vous n'avez rien dans votre inventaire. </p>"
     }
     else {
     zoneTexte.innerHTML = "<p id='breathe_fire'> Inventaire : " + inventory + "</p>"

@@ -78,13 +78,3 @@ label {
   margin-right: 10px;
 }
 
-option {
-  /* ne marche pas */
-  color: #2d2524;
-  font-size: 30px;
-}
-
-datalist {
-  /* ne marche pas */
-  background-color: #2d2524;
-}
