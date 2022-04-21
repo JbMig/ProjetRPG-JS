@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./rpg_steven.css" />
-		<title>Dungeon Crawler</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./rpg_steven.css" />
+    <title>Dungeon Crawler</title>
+  </head>
 
-  	<body>
-    	<div id="interface">
-      		<div id="haut">
-        		<a href="https://github.com/JbMig/ProjetRPG-JS">
-          			<img src="./images_steven/github.png" />
-        		</a>
+  <body>
+    <div id="interface">
+      <div id="haut">
+        <a href="https://github.com/JbMig/ProjetRPG-JS">
+          <img src="./images_steven/github.png" />
+        </a>
 
-        		<h1 id="breathe_fire">Dungeon Crawler</h1>
-      		</div>
+        <h1 id="breathe_fire">Dungeon Crawler</h1>
 
-      		<div id="canvas">
-        		<canvas id="plateau" width="700" height="430"></canvas>
-      		</div>
+        <!-- Div insible pour bien placer les élément au dessus en flex-->
+        <div id="invisible"></div>
+      </div>
 
-      		<div id="bas">
-				<!-- questions des pnj -->
-				<!-- ajouter du CSS pour que le style soit cohérent avec le reste du RPG -->
-				<!-- ajouter du JS pour faire apparaitre / disparaitre les questions au bon moment -->
-				<label for="question_1">question_1</label>
-				<input list="reponses_question_1" id="question_1" name="question_1"/>
-				<datalist id="reponses_question_1">
-					<option value="reponse_1a">
-					<option value="reponse_1b">
-					<option value="reponse_1c">
-					<option value="reponse_1d">
-				</datalist>
+      <div id="canvas">
+        <canvas id="plateau" width="700" height="430"></canvas>
+      </div>
 
-				<label for="question_2">question_2</label>
-				<input list="reponses_question_2" id="question_2" name="question_2"/>
-				<datalist id="reponses_question_2">
-					<option value="reponse_2a">
-					<option value="reponse_2b">
-					<option value="reponse_2c">
-					<option value="reponse_2d">
-				</datalist>
+      <div id="bas">
+        <!-- questions des pnj -->
+        <!-- ajouter du CSS pour que le style soit cohérent avec le reste du RPG -->
+        <!-- ajouter du JS pour faire apparaitre / disparaitre les questions au bon moment -->
+        <label for="question_1">question_1</label>
+        <input list="reponses_question_1" id="question_1" name="question_1" />
+        <datalist id="reponses_question_1">
+          <option value="reponse_1a"></option>
+          <option value="reponse_1b"></option>
+          <option value="reponse_1c"></option>
+          <option value="reponse_1d"></option>
+        </datalist>
 
-				<label for="question_3">question_3</label>
-				<input list="reponses_question_3" id="question_3" name="question_3"/>
-				<datalist id="reponses_question_3">
-					<option value="reponse_3a">
-					<option value="reponse_3b">
-					<option value="reponse_3c">
-					<option value="reponse_3d">
-				</datalist>
+        <label for="question_2">question_2</label>
+        <input list="reponses_question_2" id="question_2" name="question_2" />
+        <datalist id="reponses_question_2">
+          <option value="reponse_2a"></option>
+          <option value="reponse_2b"></option>
+          <option value="reponse_2c"></option>
+          <option value="reponse_2d"></option>
+        </datalist>
 
-				<label for="question_4">question_4</label>
-				<input list="reponses_question_4" id="question_4" name="question_4"/>
-				<datalist id="reponses_question_4">
-					<option value="reponse_4a">
-					<option value="reponse_4b">
-					<option value="reponse_4c">
-					<option value="reponse_4d">
-				</datalist>
-      		</div>
-    	</div>
-		<script src="./map.js"></script>
-		<script src="./game.js"></script>
-	</body>
+        <label for="question_3">question_3</label>
+        <input list="reponses_question_3" id="question_3" name="question_3" />
+        <datalist id="reponses_question_3">
+          <option value="reponse_3a"></option>
+          <option value="reponse_3b"></option>
+          <option value="reponse_3c"></option>
+          <option value="reponse_3d"></option>
+        </datalist>
+
+        <label for="question_4">question_4</label>
+        <input list="reponses_question_4" id="question_4" name="question_4" />
+        <datalist id="reponses_question_4">
+          <option value="reponse_4a"></option>
+          <option value="reponse_4b"></option>
+          <option value="reponse_4c"></option>
+          <option value="reponse_4d"></option>
+        </datalist>
+      </div>
+    </div>
+    <script src="./map.js"></script>
+    <script src="./game.js"></script>
+  </body>
 </html>

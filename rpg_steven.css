@@ -39,20 +39,12 @@ body {
   background-color: #483b3a;
 }
 
-
 /* Haut avec titre du jeu */
 
-/* Déplacement du logo à gauche */
-#haut a {
-  position: absolute;
-  left: 0;
-  margin-left: 10%;
-}
-
-/* Déplacement du texte au centre */
+/* Déplacement logo/texte */
 #haut {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -78,18 +70,21 @@ body {
 /* Formulaires, a.k.a quiz */
 
 label {
-	color: #ead6ce;
-	font-size: 40px;
-	text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524;
-	margin-left: 10px;
-	margin-right: 10px;
-  	}
+  color: #ead6ce;
+  font-size: 40px;
+  text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524,
+    0 0 4px #2d2524;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-option { /* ne marche pas */
-	color: #2d2524;
-	font-size: 30px;
-	}
+option {
+  /* ne marche pas */
+  color: #2d2524;
+  font-size: 30px;
+}
 
-datalist { /* ne marche pas */
-	background-color: #2d2524;
+datalist {
+  /* ne marche pas */
+  background-color: #2d2524;
 }

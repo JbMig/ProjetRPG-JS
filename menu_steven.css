@@ -24,24 +24,16 @@ body {
   background-color: #2d2524;
 }
 
-#centre,
-#press_enter {
+#centre {
   background-color: #483b3a;
 }
 
 /* Haut avec titre du jeu */
 
-/* Déplacement du logo à gauche */
-#haut a {
-  position: absolute;
-  left: 0;
-  margin-left: 10%;
-}
-
-/* Déplacement du texte au centre */
+/* Déplacement logo/texte */
 #haut {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -68,13 +60,21 @@ body {
   background-color: #2d2524;
 }
 
+.rectangleINVENTAIRE {
+  height: 23.75rem;
+  width: 100%;
+  background-color: #2d2524;
+}
+
 #centre {
   display: grid;
   /* Pour le placement des sections movement et attack */
-  grid-template-columns: 25% 25% 10% 20% 25%;
+  grid-template-columns: 15% 25% 5% 20% 5% 15% 15%;
   grid-template-rows: 1fr 23.75rem 1fr 1fr;
   justify-items: center;
 }
+
+/* PARTIE MOVEMENT */
 
 #movement_rectangle {
   /* Placement dans le centre */
@@ -97,7 +97,7 @@ body {
 }
 
 #movement_images img:not(#separation) {
-  width:40%;
+  width: 40%;
   height: auto;
 }
 
@@ -116,7 +116,7 @@ body {
   justify-self: center;
 }
 
-
+/* PARTIE ATTACK */
 
 #attack_rectangle {
   /* Placement dans le centre */
@@ -138,7 +138,7 @@ body {
 }
 
 #attack_images img {
-  width:100%;
+  width: 100%;
   height: auto;
 }
 
@@ -150,19 +150,46 @@ body {
   justify-self: center;
 }
 
-/* Style du texte des rectangles */
-#movement_rectangle > h1,
-#attack_rectangle > h1 {
-  color: white;
-  text-shadow: 0 0 2px #715c5b, 0 0 2px #715c5b, 0 0 2px #715c5b,
-    0 0 2px #715c5b;
-  filter: drop-shadow(0px 4px 4px black);
+/* PARTIE INVENTAIRE */
+
+#inventaire_rectangle {
+  /* Placement dans le centre */
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  /* Pour le placement dans le rectangle inventaire */
+  display: grid;
+  grid-template-rows: 2.688rem 1fr 3.125rem 2.563rem 4.563rem;
 }
+
+/* Placement des images dans le rectangle inventaire */
+#inventaire_images {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  align-self: center;
+  justify-self: center;
+}
+
+#inventaire_images img {
+  width: 100%;
+  height: auto;
+}
+
+/* Placement du texte dans le rectangle inventaire */
+#inventaire_rectangle > h1 {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  align-self: center;
+  justify-self: center;
+}
+
+/* PARTIE PRESS ENTER */
 
 /* Déplacement du texte press enter */
 #press_enter {
-  grid-column-start: 2;
-  grid-column-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 4;
   justify-self: center;
@@ -174,5 +201,16 @@ body {
   color: #ead6ce;
   text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524,
     0 0 4px #2d2524;
+  filter: drop-shadow(0px 4px 4px black);
+}
+
+/* Style du texte des rectangles */
+
+#movement_rectangle > h1,
+#attack_rectangle > h1,
+#inventaire_rectangle > h1 {
+  color: white;
+  text-shadow: 0 0 2px #715c5b, 0 0 2px #715c5b, 0 0 2px #715c5b,
+    0 0 2px #715c5b;
   filter: drop-shadow(0px 4px 4px black);
 }
