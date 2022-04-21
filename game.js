@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 99];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 19, 99];
 
 function move() {
 
@@ -425,6 +425,10 @@ function affmap(){
             else if (map[i][j] == 15){
                 ctx.drawImage(img,80,85,14,33,x,y,width,70);
             }
+            //pilier vide
+            else if (map[i][j] == 19){
+                ctx.drawImage(img,81,105,15,11,x,y,width,70);
+            } 
             //fontaine
             else if (map[i][j] == 16){
                 ctx.drawImage(img,79,46,19,23,x,y,width,70);
