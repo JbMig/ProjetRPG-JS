@@ -2,10 +2,13 @@ let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
 
-document.getElementById("test_q1").hidden = true;
-document.getElementById("test_q2").hidden = true;
-document.getElementById("test_q3").hidden = true;
-document.getElementById("test_q4").hidden = true;
+document.getElementById("form_q1").hidden = true;
+document.getElementById("form_q2").hidden = true;
+document.getElementById("form_q3").hidden = true;
+document.getElementById("form_q4").hidden = true;
+
+// autre possibilité : document.getElementById("form_q1").style.display="none";
+
 
 function move() {
     
@@ -321,7 +324,17 @@ function pnj(chiffre){
     if ( isDialogue == true ) {
         if ( chiffre == 30) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>";
-			document.getElementById("test_q1").hidden = false; // pourquoi ça marche pas ? T_T
+			// document.getElementById("form_q1").hidden = false; // pourquoi ça marche pas ? T_T
+			// document.getElementById("form_q2").hidden = false;
+			// document.getElementById("form_q3").hidden = false;
+			// document.getElementById("form_q4").hidden = false;
+			
+			// Uncaught TypeError: Cannot set properties of null (setting 'hidden')
+			// at pnj (game.js:324:46) at HTMLDocument.move (game.js:285:33) pnj @ game.js:324 move @ game.js:285
+			// Le JS ne reconnait pas les id dans les getelementbyid... chelou...
+						
+			// autre possibilité : document.getElementById("form_q1").style.display="block";
+			
         }
         else if ( chiffre == 31) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
