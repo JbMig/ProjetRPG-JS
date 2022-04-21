@@ -1,5 +1,5 @@
 let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 99];
-let objetObtenable = [ 4 , 50 , 51 , 52, 53];
+let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 function move() {
 
     
@@ -304,7 +304,16 @@ function pnj(chiffre){
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 32) {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
+            if (inventory.includes("potion bleue") && !inventory.includes("potion verte")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : C'était simple non ? Maintenant, hors de ma vue ! <br> Vous avez obtenu une potion bleue !</p>"
+                inventory.push("potion verte")
+            }
+            else if ( inventory.includes("potion verte")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : Vous avez vraiment rien à faire à venir m'enquiquiner ?? </p>"
+            }
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion bleue. Si vous ne l'avez pas, vous êtes vraiment pas doué. </p>"
+            }
         }
         else if ( chiffre == 33) {
             if ( inventory.includes("potion rouge") && !inventory.includes("potion bleue")) {
@@ -328,10 +337,28 @@ function pnj(chiffre){
             zoneTexte.innerHTML = "<p id='breathe_fire'> Enfant : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 37) {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : La princesse est dans un autre donjon. </p>"
+            if (inventory.includes("potion verte") && !inventory.includes("potion jaune")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Toto : Bien joué, jeune chenapan !  <br> Vous avez obtenu une potion jaune !</p>"
+                inventory.push("potion jaune")
+            }
+            else if ( inventory.includes("potion jaune")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Toto : C'est bon, je sais que je suis magnifique mais pas la peine de m'harceler. </p>"
+            }
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : Apportez la potion verte s'il vous plaît. </p>"
+            }
         }
         else if ( chiffre == 38) {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : La princesse est dans un autre donjon. </p>"
+            if (inventory.includes("potion verte","potion rouge","potion verte","potion jaune") && !inventory.includes("UltraLaser")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Lala : Oh héros de l'aube, je vous accorde le pouvoir de bannir le mal !  <br> Vous avez obtenu la capacité UltraLaser !</p>"
+                inventory.push("UltraLaser")
+            }
+            else if ( inventory.includes("UltraLaser")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Lala : Sauver notre monde, élu de ce monde ! </p>"
+            }
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : Apportez moi les 4 potions légendaires ! </p>"
+            }
         }
         else if ( chiffre == 39) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
@@ -359,16 +386,16 @@ function obtenirObjet (number) {
     if ( number == 4) {
         inventory.push("clef")
     }
-    else if ( number == 50) {
+    else if ( number == 60) {
         inventory.push("potion rouge")
     }
-    else if ( number == 51) {
+    else if ( number == 61) {
         inventory.push("potion bleue")
     }
-    else if ( number == 52) {
+    else if ( number == 62) {
         inventory.push("potion verte")
     }
-    else if ( number == 53) {
+    else if ( number == 63) {
         inventory.push("potion jaune")
     }
  }
@@ -533,13 +560,13 @@ function affmap(){
             }
             //dinette
             else if (map[i][j] == 31){
-                ctx.drawImage(img,130,177,15,14,x,y,30,35);
-      
+                ctx.drawImage(img,128,205,17,25,x,y,30,35);
+
             }
             //mage
             else if (map[i][j] == 32){
-                ctx.drawImage(img,128,205,17,25,x,y,30,35);
-       
+                ctx.drawImage(img,130,177,15,14,x,y,30,35);
+      
             }
             //sorcière
             else if (map[i][j] == 33){
