@@ -312,7 +312,7 @@ function pnj(chiffre){
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : Vous avez vraiment rien à faire à venir m'enquiquiner ?? </p>"
             }
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion bleue. Si vous ne l'avez pas, vous êtes vraiment pas doué. </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : Trouvez la potion bleue. Si vous ne l'avez pas, vous êtes vraiment pas doué. </p>"
             }
         }
         else if ( chiffre == 33) {
