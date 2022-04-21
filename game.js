@@ -1,8 +1,8 @@
 let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 99];
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
-function move() {
 
+function move() {
     
     action = window.event;
     isDialogue = false;
