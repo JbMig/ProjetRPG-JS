@@ -413,13 +413,13 @@ function affmap(){
             else if (map[i][j] == 23){
                 ctx.drawImage(hole,0,0,1,1,x,y,width,height);
             }
-            //porte gauche
-            else if (map[i][j] == 3){
-            ctx.drawImage(img,52,220,15,35,x,y,width,height);
-            }
             //porte droite
-            else if (map[i][j] == 6){
-                ctx.drawImage(img,31,220,15,35,x,y,width,height);                
+            else if (map[i][j] == 3){
+                ctx.drawImage(img,46.5,220,18.5,35,x,y,width,70);
+            }
+            //porte gauche
+                else if (map[i][j] == 6){
+                ctx.drawImage(img,28,220,18.5,35,x,y,width,70);                
             }
             // pilier
             else if (map[i][j] == 15){
