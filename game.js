@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 99];
 
 function move() {
 
@@ -299,10 +299,10 @@ function pnj(chiffre){
         if ( chiffre == 30) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 32) {
+        else if ( chiffre == 31) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 31) {
+        else if ( chiffre == 32) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 33) {
@@ -371,6 +371,7 @@ function affmap(){
         for (let j=0; j<map[i].length; j++){
 
             //Défini l'image qu'il faut par rapport au nombre qui correspond dans la liste map
+
             //mur horizontal haut
             if (map[i][j] == 0){
                 ctx.drawImage(img,36,125,22,15,x,y,width,height);
@@ -380,10 +381,6 @@ function affmap(){
             else if (map[i][j] == 7){
                 ctx.drawImage(img,32,140,4,15,x,y,10,height);         
             }
-            //mur vertical droit
-            else if (map[i][j] == 10){
-                ctx.drawImage(img,28.5,140,8,15,x,y,25,height);         
-            }
             // coin haut gauche
             else if (map[i][j] == 8){
                 ctx.drawImage(img,28,125,12,15,x,y,width,height);
@@ -391,6 +388,10 @@ function affmap(){
             // coin haut droit
             else if (map[i][j] == 9){
                 ctx.drawImage(img,55,125,12,15,x,y,width,height);
+            }
+            //mur vertical droit
+            else if (map[i][j] == 10){
+                ctx.drawImage(img,28.5,140,8,15,x,y,25,height);         
             }
             // coin bas droit
             else if (map[i][j] == 11){
@@ -411,6 +412,30 @@ function affmap(){
             // vide
             else if (map[i][j] == 23){
                 ctx.drawImage(hole,0,0,1,1,x,y,width,height);
+            }
+            //porte gauche
+            else if (map[i][j] == 3){
+            ctx.drawImage(img,52,220,15,35,x,y,width,height);
+            }
+            //porte droite
+            else if (map[i][j] == 6){
+                ctx.drawImage(img,31,220,15,35,x,y,width,height);                
+            }
+            // pilier
+            else if (map[i][j] == 15){
+                ctx.drawImage(img,80,85,14,33,x,y,width,70);
+            }
+            //fontaine
+            else if (map[i][j] == 16){
+                ctx.drawImage(img,79,46,19,23,x,y,width,70);
+            }
+            //lave
+            else if (map[i][j] == 17){
+                ctx.drawImage(img,66,12,11,29,x,y,width,70);
+            }
+            //acide
+            else if (map[i][j] == 18){
+                ctx.drawImage(img,63,78,15,19,x,y,width,height);
             }
             //personnage
             else if (map[i][j] == 2){
@@ -433,65 +458,57 @@ function affmap(){
                 ctx.drawImage(key,96,-10,30,40,x,y,30,30);
                 
             }
-            //pnj
+            //tout les pnj
+
+            //dinosaure
             else if (map[i][j] == 30){
                 ctx.drawImage(img,130,237,16,19,x,y,30,35);
              
             }
-            //pnj
+            //dinette
             else if (map[i][j] == 31){
                 ctx.drawImage(img,130,177,15,14,x,y,30,35);
       
             }
-            //pnj
+            //mage
             else if (map[i][j] == 32){
                 ctx.drawImage(img,128,205,17,25,x,y,30,35);
        
             }
-            //pnj
+            //sorcière
             else if (map[i][j] == 33){
                 ctx.drawImage(img,128,140,15,25,x,y,30,35);
         
             }
-            //pnj
+            //golem
             else if (map[i][j] == 34){
                 ctx.drawImage(img,22,275,22,37,x,y,50,70);
               
             }
-            //pnj
+            //ogre
             else if (map[i][j] == 35){
                 ctx.drawImage(img,22,325,20,35,x,y,30,35);
              
             }
-            //pnj
+            //enfant
             else if (map[i][j] == 36){
                 ctx.drawImage(img,370,81,13,18,x,y,30,35);
                
             }
-            //pnj
+            //fée garçon
             else if (map[i][j] == 37){
                 ctx.drawImage(img,128,17,15,20,x,y,30,35);
         
             }
-            //pnj
+            //fée fille
             else if (map[i][j] == 38){
                 ctx.drawImage(img,128,45,15,24,x,y,30,35);
           
             }
-            //pnj
+            //plante
             else if (map[i][j] == 39){
                 ctx.drawImage(img,370,143,12,23,x,y,30,35);
         
-            }
-            //porte gauche
-            else if (map[i][j] == 6){
-                ctx.drawImage(img,31,220,15,35,x,y,width,height);
-                
-            }
-            //porte droite
-            else if (map[i][j] == 3){
-                ctx.drawImage(img,52,220,15,35,x,y,width,height);
-                
             }
             // Sépparationd des éléments en ligne
             x=x+35;
