@@ -110,7 +110,7 @@ function move() {
                     //ou s'il y a un pnj ou une porte
                     else if (!objetNonTraversable.includes(map[i][j-1])){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
-                        if (objetNonTraversable.includes(map[i][j-1])){
+                        if (objetObtenable.includes(map[i][j-1])){
                             obtenirObjet(map[i][j-1])
                             map[i][j-1] = 1
                         }
