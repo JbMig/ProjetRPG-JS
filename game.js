@@ -1,5 +1,5 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 , 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 19, 99];
-
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40,41, 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 19, 99];
+let objetObtenable = [ 4 , 50 , 51 , 52, 53];
 function move() {
 
     
@@ -28,9 +28,9 @@ function move() {
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
                     else if (!objetNonTraversable.includes(map[i-1][j])){
-                        if (map[i-1][j] ==4){
+                        if (objetObtenable.includes(map[i-1][j])){
                             // Si le joueur marche sur une clef la rajoute dans son inventaire
-                            inventory.push("clef")
+                            obtenirObjet(map[i-1][j]);
                             console.log(inventory)
                             map[i-1][j] = 1
                         }
@@ -69,9 +69,9 @@ function move() {
                     // Bloque le joueur s'il atteind les limites de la carte
                     //ou s'il y a un pnj ou une porte
                     else if (!objetNonTraversable.includes(map[i+1][j])){
-                    if (map[i+1][j] ==4){
+                    if (objetObtenable.includes(map[i+1][j])){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
-                        inventory.push("clef")
+                        obtenirObjet(map[i+1][j])
                         map[i+1][j] = 1
                     }
                         //Remplace la case de la clef par une case neutre
@@ -110,8 +110,8 @@ function move() {
                     //ou s'il y a un pnj ou une porte
                     else if (!objetNonTraversable.includes(map[i][j-1])){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
-                        if (map[i][j-1] ==4){
-                            inventory.push("clef")
+                        if (objetNonTraversable.includes(map[i][j-1])){
+                            obtenirObjet(map[i][j-1])
                             map[i][j-1] = 1
                         }
                         //Remplace la case de la clef par une case neutre
@@ -153,8 +153,8 @@ function move() {
                     else if (!objetNonTraversable.includes(map[i][j+1])){
                     // else if (map[i][j+1] !=0 && map[i][j+1] !=7 && map[i][j+1] != 5  && map[i][j+1] != 6){
                         // Si le joueur marche sur une clef la rajoute dans son inventaire
-                        if (map[i][j+1] ==4){
-                            inventory.push("clef")
+                        if (objetObtenable.includes(map[i][j+1])){
+                            obtenirObjet(map[i][j+1]);
                             map[i][j+1] = 1
                         }
                         //Remplace la case de la clef par une case neutre
@@ -169,7 +169,9 @@ function move() {
         }
         affmap()
     }
-    
+    else if (action.keyCode == '73') {
+        openInventory();
+    }
     // Barre d'space ou touche d'action
     else if (action.keyCode == '32'){
         for(let i=0; i < map.length; i++){
@@ -328,15 +330,44 @@ function pnj(chiffre){
         }
     }
 }
+// Message si on ne possède pas la clé
 function porteFermé () {
     let zoneTexte = document.querySelector("#bas");
     zoneTexte.innerHTML = "<p id='breathe_fire'> Vous n'avez pas de clé, du balai ! <p/>"
 }
+// Message si la porte s'ouvre
 function porteOuvert () {
     let zoneTexte = document.querySelector("#bas");
     zoneTexte.innerHTML = "<p id='breathe_fire'> Félicitation, la porte a disparu !  <p/>"
 }
-
+// Pour obtenir un objet lorsqu'on marche dessus
+function obtenirObjet (number) {
+    if ( number == 4) {
+        inventory.push("clef")
+    }
+    else if ( number == 50) {
+        inventory.push("potion rouge")
+    }
+    else if ( number == 51) {
+        inventory.push("potion bleue")
+    }
+    else if ( number == 52) {
+        inventory.push("potion verte")
+    }
+    else if ( number == 53) {
+        inventory.push("potion jaune")
+    }
+ }
+ // Ouvrir l'inventaire
+ function openInventory () {
+    let zoneTexte = document.querySelector("#bas");
+    if (inventory.length == 0) {
+        zoneTexte.innerHTML = "<p id='breathe_fire'> Vous avez rien dans votre inventaire ! </p>"
+    }
+    else {
+    zoneTexte.innerHTML = "<p id='breathe_fire'> Inventaire : " + inventory + "</p>"
+    }
+}
 // Supprimer le dialogue si on ne parle pas
 function suppDialogue () {
     let zoneTexte = document.querySelector("#bas");
@@ -441,6 +472,23 @@ function affmap(){
             else if (map[i][j] == 18){
                 ctx.drawImage(img,63,78,15,19,x,y,width,height);
             }
+            //potion rouge
+            else if (map[i][j] == 50){
+                ctx.drawImage(img,290,227,15,13,x,y,30,35);
+            }
+            //potion bleue
+            else if (map[i][j] == 51){
+                ctx.drawImage(img,306,227,15,13,x,y,30,35);
+            }
+            //potion verte
+            else if (map[i][j] == 52){
+                ctx.drawImage(img,322,227,15,13,x,y,30,35);
+            }
+            //potion jaune
+            else if (map[i][j] == 53){
+                ctx.drawImage(img,339,227,15,13,x,y,30,35);
+            }
+            
             //personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
