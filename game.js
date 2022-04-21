@@ -308,7 +308,16 @@ function pnj(chiffre){
             zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 33) {
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : La princesse est dans un autre donjon. </p>"
+            if ( inventory.includes("potion rouge") && !inventory.includes("potion bleue")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Sorcière : Vous avez réussi mon épreuve, voici votre récompense ! <br> Vous avez obtenu une potion bleue !</p>"
+                inventory.push("potion bleue")
+            }
+            else if ( inventory.includes("potion bleue")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Sorcière : Pourquoi vous êtes encore là ? Explorer un peu le donjon non ???  </p>"
+            }
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion rouge et je vous accorderez ma bénédiction :) </p>"
+            }
         }
         else if ( chiffre == 34 || chiffre == 44) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
