@@ -510,6 +510,15 @@ function affmap(){
                 ctx.drawImage(img,370,143,12,23,x,y,30,35);
         
             }
+            //petit masque monstre
+            else if (map[i][j] == 40){
+                ctx.drawImage(img,370,175,15,18,x,y,30,35);
+
+            }
+            //petit monstre
+            else if (map[i][j] == 41){
+                ctx.drawImage(img,370,208,15,18,x,y,30,35)
+        }
             // Sépparationd des éléments en ligne
             x=x+35;
         }
