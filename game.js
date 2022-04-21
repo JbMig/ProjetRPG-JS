@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40,41, 10 , 12 , 11 , 14 , 9, 13, 3, 44, 23, 15, 16, 17, 18, 19, 99];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 99];
 let objetObtenable = [ 4 , 50 , 51 , 52, 53];
 function move() {
 
@@ -178,7 +178,6 @@ function move() {
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     if (SpritePosition == "haut" ) {
-                        console.log("coucoué")
                         // Si la case devant le personnage est un pnj
                         if (objetNonTraversable.includes(map[i-1][j])){
                             isDialogue = true;
@@ -319,7 +318,7 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion rouge et je vous accorderez ma bénédiction :) </p>"
             }
         }
-        else if ( chiffre == 34 || chiffre == 44) {
+        else if ( chiffre == 34 || chiffre == 50) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 35) {
@@ -336,6 +335,12 @@ function pnj(chiffre){
         }
         else if ( chiffre == 39) {
             zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( chiffre == 42 || chiffre == 51) {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Gros Ogre : La princesse est dans un autre donjon. </p>"
+        }
+        else if ( chiffre == 43 || chiffre == 52) {
+            zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : La princesse est dans un autre donjon. </p>"
         }
     }
 }
@@ -482,19 +487,19 @@ function affmap(){
                 ctx.drawImage(img,63,78,15,19,x,y,width,height);
             }
             //potion rouge
-            else if (map[i][j] == 50){
+            else if (map[i][j] == 60){
                 ctx.drawImage(img,290,227,15,13,x,y,30,35);
             }
             //potion bleue
-            else if (map[i][j] == 51){
+            else if (map[i][j] == 61){
                 ctx.drawImage(img,306,227,15,13,x,y,30,35);
             }
             //potion verte
-            else if (map[i][j] == 52){
+            else if (map[i][j] == 62){
                 ctx.drawImage(img,322,227,15,13,x,y,30,35);
             }
             //potion jaune
-            else if (map[i][j] == 53){
+            else if (map[i][j] == 63){
                 ctx.drawImage(img,339,227,15,13,x,y,30,35);
             }
             
@@ -579,7 +584,15 @@ function affmap(){
             //petit monstre
             else if (map[i][j] == 41){
                 ctx.drawImage(img,370,208,15,18,x,y,30,35)
-        }
+            }
+            //Gros ogre
+            else if (map[i][j] == 42){
+                ctx.drawImage(img,22,326,22,37,x,y,50,70);  
+            }
+            //Pieuvre
+            else if (map[i][j] == 43){
+                ctx.drawImage(img,22,369,22,37,x,y,70,105);  
+            }
             // Sépparationd des éléments en ligne
             x=x+35;
         }
