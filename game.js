@@ -718,6 +718,10 @@ function affmap(){
             else if (map[i][j] == 43){
                 ctx.drawImage(img,22,369,22,37,x,y,70,105);  
             }
+            //coffre
+            else if (map[i][j] == 44){
+                ctx.drawImage(img,303,320,17,13,x,y,30,35)
+            }
             // Sépparationd des éléments en ligne
             x=x+35;
         }
