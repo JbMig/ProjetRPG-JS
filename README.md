@@ -19,4 +19,4 @@ Pour ça, vous devrez traverser un périlleux donjon regroupant parmis les créa
 
 Parviendrez vous à vous échapper de ce qui se présente comme votre tombeau ?
 
-(lancez le jeu avec menu.html)
+https://jbmig.github.io/ProjetRPG-JS/
