@@ -1,4 +1,4 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 99];
+let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 20, 21, 22, 24, 99];
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
 
@@ -498,32 +498,49 @@ function affmap(){
 
             //mur horizontal haut
             if (map[i][j] == 0){
-                ctx.drawImage(img,36,125,22,15,x,y,width,height);
+                ctx.drawImage(img,36,157,22,19,x,y,width,height);
                 
+            }
+            // différents sol
+            else if (map[i][j] == 71){
+                ctx.drawImage(img,32,63,17,17,x,y,width,height);         
+            }
+            else if (map[i][j] == 72){
+                ctx.drawImage(img,49,63,17,17,x,y,width,height);         
+            }
+            else if (map[i][j] == 73){
+                ctx.drawImage(img,49,80,17,17,x,y,width,height);         
+            }
+            else if (map[i][j] == 74){
+                ctx.drawImage(img,18,96,34,17,x,y,70,height);         
+            }
+            // crane
+            else if (map[i][j] == 75){
+                ctx.drawImage(img,290,323,13,10,x,y,30,20);         
             }
             //mur vertical gauche
             else if (map[i][j] == 7){
-                ctx.drawImage(img,32,140,4,15,x,y,10,height);         
+                ctx.drawImage(img,32,140,4,19,x,y,10,height);         
             }
             // coin haut gauche
             else if (map[i][j] == 8){
-                ctx.drawImage(img,28,125,12,15,x,y,width,height);
+                ctx.drawImage(img,28,125,12,19,x,y,width,height);
             }
             // coin haut droit
             else if (map[i][j] == 9){
-                ctx.drawImage(img,55,125,12,15,x,y,width,height);
+                ctx.drawImage(img,55,125,12,16,x,y,width,height);
             }
             //mur vertical droit
             else if (map[i][j] == 10){
-                ctx.drawImage(img,28.5,140,8,15,x,y,25,height);         
+                ctx.drawImage(img,28.5,140,8,19,x,y,25,height);         
             }
             // coin bas droit
             else if (map[i][j] == 11){
-                ctx.drawImage(img,55,157,12,15,x,y,width,height);
+                ctx.drawImage(img,55,157,12,16,x,y,width,height);
             }
             //coin bas gauche
             else if (map[i][j] == 12){
-                ctx.drawImage(img,28,156.5,12,18,x,y,width,height);
+                ctx.drawImage(img,28.5,156.5,11,19,x,y,width,height);
             }
             // intersection
             else if (map[i][j] == 13){
@@ -564,6 +581,22 @@ function affmap(){
             //acide
             else if (map[i][j] == 18){
                 ctx.drawImage(img,63,78,15,19,x,y,width,height);
+            }
+            //drapeau rouge
+            else if (map[i][j] == 20){
+                ctx.drawImage(flag,0,7,55,63,x,y,width,height);
+            }
+            //drapeau bleue
+            else if (map[i][j] == 21){
+                ctx.drawImage(flag,55,7,55,63,x,y,width,height);
+            }
+            //drapeau vert
+            else if (map[i][j] == 22){
+                ctx.drawImage(flag,110,7,55,63,x,y,width,height);
+            }
+            //drapeau jaune
+            else if (map[i][j] == 24){
+            ctx.drawImage(flag,180,7,60,63,x,y,width,height);
             }
             //potion rouge
             else if (map[i][j] == 60){
@@ -704,12 +737,15 @@ let key = new Image();
 key.src = './images_steven/KeyIcons.png';
 let  hole = new Image();
 hole.src = './maps/Tileset/black_square_pnj.png';
+let flag = new Image();
+flag.src = './images_steven/drapeau.PNG'
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
 img.onload = function(){affmap();};
 key.onload = function(){affmap();};
 hole.onload = function(){affmap();};
+flag.onload = function(){affmap();};
 document.onkeydown = move;
 
 var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles)-[AudioTrimmer.com].mp3');
