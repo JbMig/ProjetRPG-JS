@@ -67,14 +67,4 @@ body {
   background-size: 100%;
 }
 
-/* Formulaires, a.k.a quiz */
-
-label {
-  color: #ead6ce;
-  font-size: 40px;
-  text-shadow: 0 0 4px #2d2524, 0 0 4px #2d2524, 0 0 4px #2d2524,
-    0 0 4px #2d2524;
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
