@@ -14,6 +14,9 @@ Votre seule option ? Avancer.
 
 Pour ça, vous devrez traverser un périlleux donjon regroupant parmis les créatures les plus effroyables que vous ayez pu voir (le système de combat arrive en DLC).
 
+![image](https://user-images.githubusercontent.com/59602265/164643736-a681880b-f937-4486-b13e-9d9c09b9d16b.png)
+![image](https://user-images.githubusercontent.com/59602265/164643757-beb90680-0376-473e-b2d7-7181286bfb2a.png)
+
 Parviendrez vous à vous échapper de ce qui se présente comme votre tombeau ?
 
-(lancez le jeu avec index.html)
+(lancez le jeu avec menu.html)
