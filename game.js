@@ -352,10 +352,14 @@ let isDialogue = false;
 function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        if ( chiffre == 30) { // dino 1ère salle			
+        if ( chiffre == 30) { // dino 1ère salle
+			// inventory = [" potion verte"," potion rouge"," potion bleue"," potion jaune"]		// pour les tests
 			if (inventory.includes(" potion verte"," potion rouge"," potion bleue"," potion jaune")) {
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre don - Ah ! Tu as rassemblé les 4 potions ! <br>Bravo ! Va donc sauver ta princesse ! </p>";
 				teleport();
+				setTimeout(function(){
+					window.location.assign("end.html");
+				}, 6500);
 			}
             else {
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre donjon. Apporte-moi 4 potions de couleurs différentes <br>et je te ferai une potion de téléportation pour te rendre au bon endroit.</p>";
