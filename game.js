@@ -2,13 +2,6 @@ let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
 
-document.getElementById("form_q1").hidden = true;
-document.getElementById("form_q2").hidden = true;
-document.getElementById("form_q3").hidden = true;
-document.getElementById("form_q4").hidden = true;
-
-// autre possibilité : document.getElementById("form_q1").style.display="none";
-
 
 function move() {
     
@@ -322,24 +315,13 @@ let isDialogue = false;
 function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        if ( chiffre == 30) {
+        if ( chiffre == 30) { // dino 1ère salle
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>";
-			// document.getElementById("form_q1").hidden = false; // pourquoi ça marche pas ? T_T
-			// document.getElementById("form_q2").hidden = false;
-			// document.getElementById("form_q3").hidden = false;
-			// document.getElementById("form_q4").hidden = false;
-			
-			// Uncaught TypeError: Cannot set properties of null (setting 'hidden')
-			// at pnj (game.js:324:46) at HTMLDocument.move (game.js:285:33) pnj @ game.js:324 move @ game.js:285
-			// Le JS ne reconnait pas les id dans les getelementbyid... chelou...
-						
-			// autre possibilité : document.getElementById("form_q1").style.display="block";
-			
         }
-        else if ( chiffre == 31) {
+        else if ( chiffre == 31) { // nulle part
             zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 32) {
+        else if ( chiffre == 32) { // nulle part
             if (inventory.includes("potion bleue") && !inventory.includes("potion verte")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : C'était simple non ? Maintenant, hors de ma vue ! <br> Vous avez obtenu une potion verte !</p>"
                 inventory.push("potion verte")
@@ -351,7 +333,7 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : Trouvez la potion bleue. Si vous ne l'avez pas, vous êtes vraiment pas doué. </p>"
             }
         }
-        else if ( chiffre == 33) {
+        else if ( chiffre == 33) { // nulle part
             if ( inventory.includes("potion rouge") && !inventory.includes("potion bleue")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Sorcière : Vous avez réussi mon épreuve, voici votre récompense ! <br> Vous avez obtenu une potion bleue !</p>"
                 inventory.push("potion bleue")
@@ -363,16 +345,16 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion rouge et je vous accorderez ma bénédiction :) </p>"
             }
         }
-        else if ( chiffre == 34 || chiffre == 50) {
+        else if ( chiffre == 34 || chiffre == 50) { // gros monstre avec une feuille, 3e salle
             zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 35) {
+        else if ( chiffre == 35) { // petits monstres, 3e et 5e salle
             zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 36) {
+        else if ( chiffre == 36) { // nulle part
             zoneTexte.innerHTML = "<p id='breathe_fire'> Enfant : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 37) {
+        else if ( chiffre == 37) { // nulle part
             if (inventory.includes("potion verte") && !inventory.includes("potion jaune")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Toto : Bien joué, jeune chenapan !  <br> Vous avez obtenu une potion jaune !</p>"
                 inventory.push("potion jaune")
@@ -384,7 +366,7 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : Apportez la potion verte s'il vous plaît. </p>"
             }
         }
-        else if ( chiffre == 38) {
+        else if ( chiffre == 38) { // nulle part
             if (inventory.includes("potion verte","potion rouge","potion verte","potion jaune") && !inventory.includes("UltraLaser")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Lala : Oh héros de l'aube, je vous accorde le pouvoir de bannir le mal !  <br> Vous avez obtenu la capacité UltraLaser !</p>"
                 inventory.push("UltraLaser")
@@ -396,13 +378,13 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : Apportez moi les 4 potions légendaires ! </p>"
             }
         }
-        else if ( chiffre == 39) {
+        else if ( chiffre == 39) { // nulle part
             zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 42 || chiffre == 51) {
+        else if ( chiffre == 42 || chiffre == 51) { // gros monstre, 5e salle
             zoneTexte.innerHTML = "<p id='breathe_fire'> Gros Ogre : La princesse est dans un autre donjon. </p>"
         }
-        else if ( chiffre == 43 || chiffre == 52) {
+        else if ( chiffre == 43 || chiffre == 52) { // gros monstre rouge, dernière salle
             zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : La princesse est dans un autre donjon. </p>"
 			
         }
