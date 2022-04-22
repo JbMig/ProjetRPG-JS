@@ -479,7 +479,7 @@ function affmap(){
             }
             // vide
             else if (map[i][j] == 23){
-                ctx.drawImage(hole,0,0,1,1,x,y,width,height);
+                ctx.drawImage(hole,0,0,1,1,x,y,70,height);
             }
             //porte droite
             else if (map[i][j] == 3){
@@ -495,7 +495,7 @@ function affmap(){
             }
             //pilier vide
             else if (map[i][j] == 19){
-                ctx.drawImage(img,81,105,15,11,x,y,width,70);
+                ctx.drawImage(img,81,105,15,11,x,y,width,height);
             } 
             //fontaine
             else if (map[i][j] == 16){
