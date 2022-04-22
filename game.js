@@ -332,18 +332,29 @@ function pnj(chiffre){
                 zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : Oh ! Une potion rouge ! <br>Tiens, comme promis, en voilà une verte ! </p>"
 			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : On va jouer à un jeu. Explore le donjon. <br>Si tu trouves une potion rouge, je t'en donnerai une verte ! </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : Moi aussi, je m'ennuie. On va jouer à un jeu. Explore le donjon. <br>Si tu trouves une potion rouge, je t'en donnerai une verte ! </p>"
             }
         }
-        else if ( chiffre == 35) { // petits monstres, 3e salle
-			if (inventory.includes("potion verte")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Golem : La princesse est dans un autre donjon. </p>"
+        else if ( chiffre == 40 || chiffre == 41) { // petits monstres, 2e, 3e et 5e salles
+			if (inventory.includes("potion bleue")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Petit : La princesse est dans un autre donjon. </p>"
             }
-			else if (inventory.includes("potion rouge") && !inventory.includes("potion verte")) {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : Oh ! Une potion rouge ! <br>Tiens, comme promis, en voilà une verte ! </p>"
-			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petits : On va jouer à un jeu. Explore le donjon. <br>Si tu trouves une potion rouge, je t'en donnerai une verte ! </p>"
+				const nombre_aléatoire = Math.ceil(Math.random() * 5)
+				if ((nombre_aléatoire == 1) || (nombre_aléatoire == 2)) {
+					zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petit : Tu veux jouer ? L'un de nous a une potion bleue ! <br>Mais on se l'échange sans arrêt donc tu vas avoir du mal à trouver qui l'a ! Hihi."
+				}
+				else if ((nombre_aléatoire == 3) || (nombre_aléatoire == 4)) {
+					zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petit : Et non, ce n'est pas moi qui ai la potion ! Essaye un de mes amis. Hihi."
+				}
+				else if (nombre_aléatoire == 5) {
+					zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petit : Oh mince ! Comment tu as su que c'était moi qui l'avais ? Bon, voilà la potion. Reviens jouer quand tu veux ! Hihi."
+				}
+				else {
+					zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petit : Heu... Problème d'aléatoire. Voir JS à partir de la ligne 346."
+
+				}
+                
             }
         }
         else if ( chiffre == 42 || chiffre == 51) { // gros monstre, 5e salle
@@ -351,18 +362,21 @@ function pnj(chiffre){
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Ogre : La princesse est dans un autre donjon. </p>"
             }
 			else if (inventory.includes("potion verte") && !inventory.includes("potion jaune")) {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ... </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ZZzz.. Hein ? Oh une potion verte ! Je ne pensais pas que tu en trouverais une... J'aime bien ma potion jaune, elle m'aide à dormir. <br>Enfin, ce qui est dit est dit. Je te la donne quand-même. </p>"
 			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ... </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ZZzz.. Hein ? Oui, je dors debout. Tu trouves ça bizarre ? <br>Tu sais quoi, montre-moi une potion verte et je t'en donnerai une jaune. ..zzZZ </p>"
             }
         }
         else if ( chiffre == 43 || chiffre == 52) { // gros monstre rouge, dernière salle
 			if (inventory.includes("potion rouge")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Pieuvre : La princesse est dans un autre donjon. </p>"
             }
+			else if (inventory.includes("potion bleue") && !inventory.includes("potion jaune")) {
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Pieuvre : Oh tu as joué avec les petits ? Tiens ! Une potion rouge pour te remercier. </p>"
+			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Pieuvre : Tiens ! Une potion rouge. C'est cadeau. </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Pieuvre : Les petits s'ennuient. Tu veux bien jouer avec eux s'il te plait ? </p>"
             }
         }
     }
