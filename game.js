@@ -3,6 +3,43 @@ let objetObtenable = [ 4 , 60 , 61 , 62, 63];
 let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
 
 
+function teleport() {
+	let case_joueur
+	for(let i=0; i < map.length; i++){
+		for(let j=0; j<map[i].length; j++){
+			//regarde où est le joueur sur la carte
+			if (map[i][j] == 2){
+				case_joueur = [i,j]
+			}
+		}
+	}
+	let k = 0;
+	while (k < 12){
+		setTimeout(function(){
+			SpritePosition ='haut';
+			affmap();
+		}, 3000 + 100*(k+1));
+		setTimeout(function(){
+			SpritePosition ='gauche';
+			affmap();
+		}, 3000 + 100*(k+2));
+		setTimeout(function(){
+			SpritePosition ='bas';
+			affmap();
+		}, 3000 + 100*(k+3));
+		setTimeout(function(){
+			SpritePosition ='droite';
+			affmap();
+		}, 3000 + 100*(k+4));
+		k+=4;
+	}
+	setTimeout(function(){
+		map[case_joueur[0]][case_joueur[1]] = 1;
+		affmap();
+	}, 3000 + 100*(k+4));
+}
+
+
 function move() {
     
     action = window.event;
@@ -315,10 +352,11 @@ let isDialogue = false;
 function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
-        if ( chiffre == 30) { // dino 1ère salle
+        if ( chiffre == 30) { // dino 1ère salle			
 			if (inventory.includes(" potion verte"," potion rouge"," potion bleue"," potion jaune")) {
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre don - Ah ! Tu as rassemblé les 4 potions ! <br>Bravo ! Va donc sauver ta princesse ! </p>";
-            }
+				teleport();
+			}
             else {
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre donjon. Apporte-moi 4 potions de couleurs différentes <br>et je te ferai une potion de téléportation pour te rendre au bon endroit.</p>";
             }
