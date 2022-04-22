@@ -503,20 +503,29 @@ function affmap(){
             }
             // différents sol
             else if (map[i][j] == 71){
-                ctx.drawImage(img,32,63,17,17,x,y,width,height);         
+                ctx.drawImage(img,32,63,17,15,x,y,33,33);         
             }
             else if (map[i][j] == 72){
-                ctx.drawImage(img,49,63,17,17,x,y,width,height);         
+                ctx.drawImage(img,49,63,17,15,x,y,33,33);         
             }
             else if (map[i][j] == 73){
-                ctx.drawImage(img,49,80,17,17,x,y,width,height);         
+                ctx.drawImage(img,18,80,17,15,x,y,33,33);         
             }
             else if (map[i][j] == 74){
-                ctx.drawImage(img,18,96,34,17,x,y,70,height);         
+                ctx.drawImage(img,49,80,17,15,x,y,33,33);         
+            }
+            else if (map[i][j] == 75){
+                ctx.drawImage(img,18,96,17,15,x,y,33,33);         
+            }
+            else if (map[i][j] == 76){
+                ctx.drawImage(img,35,96,17,15,x,y,33,33);         
             }
             // crane
-            else if (map[i][j] == 75){
+            else if (map[i][j] == 77){
                 ctx.drawImage(img,290,323,13,10,x,y,30,20);         
+            }
+            else if (map[i][j] == 78){
+                ctx.drawImage(img,95,143,16,15,x,y,33,33 );         
             }
             //mur vertical gauche
             else if (map[i][j] == 7){
