@@ -46,29 +46,18 @@ body {
   font-size: 4rem;
 }
 
-/* Centre avec movement et attack / Press enter */
+/* Centre avec movement, attack, inventaire / Press enter */
 
-.rectangleZQSD {
-  height: 23.75rem;
+.rectangle {
+  height: 100%;
   width: 100%;
   background-color: #2d2524;
-}
-
-.rectangleATTACK {
-  height: 23.75rem;
-  width: 100%;
-  background-color: #2d2524;
-}
-
-.rectangleINVENTAIRE {
-  height: 23.75rem;
-  width: 100%;
-  background-color: #2d2524;
+  border: 3px solid #ead6ce;
 }
 
 #centre {
   display: grid;
-  /* Pour le placement des sections movement et attack */
+  /* Pour le placement des sections movement, attack, inventaire / Press enter */
   grid-template-columns: 15% 25% 5% 20% 5% 15% 15%;
   grid-template-rows: 1fr 23.75rem 1fr 1fr;
   justify-items: center;
