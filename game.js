@@ -699,5 +699,5 @@ document.onkeydown = move;
 
 var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles).mp3');
 audio.play();
-var audio = new Audio('sounds/Stardew Valley OST - Mines (Marimba Of Frozen Bone)');
-audio.play();
+audio.loop = true;
+audio.playbackRate = 2;
