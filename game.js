@@ -316,7 +316,6 @@ function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
         if ( chiffre == 30) { // dino 1ère salle
-
 			if (inventory.includes("potion verte","potion rouge","potion bleue","potion jaune")) {
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre don - Ah ! Tu as rassemblé les 4 potions ! <br>Bravo ! Va donc sauver ta princesse ! </p>";
             }
@@ -324,75 +323,46 @@ function pnj(chiffre){
 				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre donjon. Apporte-moi 4 potions de couleurs différentes <br>et je te ferai une potion de téléportation pour te rendre au bon endroit.</p>";
             }
         }
-        else if ( chiffre == 32) { // nulle part
-            if (inventory.includes("potion bleue") && !inventory.includes("potion verte")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : C'était simple non ? Maintenant, hors de ma vue ! <br> Vous avez obtenu une potion verte !</p>"
-                inventory.push("potion verte")
-            }
-            else if ( inventory.includes("potion verte")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Mage : Vous avez vraiment rien à faire à venir m'enquiquiner ?? </p>"
-            }
-            else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Mage : Trouvez la potion bleue. Si vous ne l'avez pas, vous êtes vraiment pas doué. </p>"
-            }
-        }
-        else if ( chiffre == 33) { // nulle part
-            if ( inventory.includes("potion rouge") && !inventory.includes("potion bleue")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Sorcière : Vous avez réussi mon épreuve, voici votre récompense ! <br> Vous avez obtenu une potion bleue !</p>"
-                inventory.push("potion bleue")
-            }
-            else if ( inventory.includes("potion bleue")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Sorcière : Pourquoi vous êtes encore là ? Explorer un peu le donjon non ???  </p>"
-            }
-            else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Sorcière : Trouvez la potion rouge et je vous accorderez ma bénédiction :) </p>"
-            }
-        }
+
         else if ( chiffre == 34 || chiffre == 50) { // gros monstre avec une feuille, 3e salle
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Golem : La princesse est dans un autre donjon. </p>"
-        }
-        else if ( chiffre == 35) { // petits monstres, 3e et 5e salle
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Ogre : La princesse est dans un autre donjon. </p>"
-        }
-        else if ( chiffre == 36) { // nulle part
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Enfant : La princesse est dans un autre donjon. </p>"
-        }
-        else if ( chiffre == 37) { // nulle part
-            if (inventory.includes("potion verte") && !inventory.includes("potion jaune")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Toto : Bien joué, jeune chenapan !  <br> Vous avez obtenu une potion jaune !</p>"
-                inventory.push("potion jaune")
+			if (inventory.includes("potion verte")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Golem : La princesse est dans un autre donjon. </p>"
             }
-            else if ( inventory.includes("potion jaune")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Toto : C'est bon, je sais que je suis magnifique mais pas la peine de m'harceler. </p>"
-            }
+			else if (inventory.includes("potion rouge") && !inventory.includes("potion verte")) {
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : Oh ! Une potion rouge ! <br>Tiens, comme promis, en voilà une verte ! </p>"
+			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Toto : Apportez la potion verte s'il vous plaît. </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : On va jouer à un jeu. Explore le donjon. <br>Si tu trouves une potion rouge, je t'en donnerai une verte ! </p>"
             }
         }
-        else if ( chiffre == 38) { // nulle part
-            if (inventory.includes("potion verte","potion rouge","potion verte","potion jaune") && !inventory.includes("UltraLaser")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Lala : Oh héros de l'aube, je vous accorde le pouvoir de bannir le mal !  <br> Vous avez obtenu la capacité UltraLaser !</p>"
-                inventory.push("UltraLaser")
+        else if ( chiffre == 35) { // petits monstres, 3e salle
+			if (inventory.includes("potion verte")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Golem : La princesse est dans un autre donjon. </p>"
             }
-            else if ( inventory.includes("UltraLaser")) {
-                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Fée Lala : Sauver notre monde, élu de ce monde ! </p>"
-            }
+			else if (inventory.includes("potion rouge") && !inventory.includes("potion verte")) {
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Golem : Oh ! Une potion rouge ! <br>Tiens, comme promis, en voilà une verte ! </p>"
+			}
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Fée Lala : Apportez moi les 4 potions légendaires ! </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Petits : On va jouer à un jeu. Explore le donjon. <br>Si tu trouves une potion rouge, je t'en donnerai une verte ! </p>"
             }
-        }
-        else if ( chiffre == 39) { // nulle part
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Plante : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 42 || chiffre == 51) { // gros monstre, 5e salle
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Gros Ogre : La princesse est dans un autre donjon. </p>"
+			if (inventory.includes("potion jaune")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Ogre : La princesse est dans un autre donjon. </p>"
+            }
+			else if (inventory.includes("potion verte") && !inventory.includes("potion jaune")) {
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ... </p>"
+			}
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Ogre : ... </p>"
+            }
         }
         else if ( chiffre == 43 || chiffre == 52) { // gros monstre rouge, dernière salle
-			if ( inventory.includes("potion rouge")) {
+			if (inventory.includes("potion rouge")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Pieuvre : La princesse est dans un autre donjon. </p>"
             }
             else {
-                zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : Tiens ! Une potion rouge </p>"
+                zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Pieuvre : Tiens ! Une potion rouge. C'est cadeau. </p>"
             }
         }
     }
