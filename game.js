@@ -316,10 +316,13 @@ function pnj(chiffre){
     let zoneTexte = document.querySelector("#bas");
     if ( isDialogue == true ) {
         if ( chiffre == 30) { // dino 1ère salle
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Dino : La princesse est dans un autre donjon. </p>";
-        }
-        else if ( chiffre == 31) { // nulle part
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Dinette : La princesse est dans un autre donjon. </p>"
+
+			if (inventory.includes("potion verte","potion rouge","potion bleue","potion jaune")) {
+				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre don - Ah ! Tu as rassemblé les 4 potions ! <br>Bravo ! Va donc sauver ta princesse ! </p>";
+            }
+            else {
+				zoneTexte.innerHTML = "<p id='breathe_fire' style='text-align:center'> Dino : La princesse est dans un autre donjon. Apporte-moi 4 potions de couleurs différentes <br>et je te ferai une potion de téléportation pour te rendre au bon endroit.</p>";
+            }
         }
         else if ( chiffre == 32) { // nulle part
             if (inventory.includes("potion bleue") && !inventory.includes("potion verte")) {
@@ -385,8 +388,12 @@ function pnj(chiffre){
             zoneTexte.innerHTML = "<p id='breathe_fire'> Gros Ogre : La princesse est dans un autre donjon. </p>"
         }
         else if ( chiffre == 43 || chiffre == 52) { // gros monstre rouge, dernière salle
-            zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : La princesse est dans un autre donjon. </p>"
-			
+			if ( inventory.includes("potion rouge")) {
+                zoneTexte.innerHTML ="<p id='breathe_fire' style='text-align:center'> Pieuvre : La princesse est dans un autre donjon. </p>"
+            }
+            else {
+                zoneTexte.innerHTML = "<p id='breathe_fire'> Pieuvre : Tiens ! Une potion rouge </p>"
+            }
         }
     }
 }
