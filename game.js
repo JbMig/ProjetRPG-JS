@@ -697,7 +697,7 @@ key.onload = function(){affmap();};
 hole.onload = function(){affmap();};
 document.onkeydown = move;
 
-var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles).mp3');
+var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles)-[AudioTrimmer.com].mp3');
 audio.play();
 audio.loop = true;
 audio.playbackRate = 2;
