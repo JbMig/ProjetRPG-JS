@@ -201,11 +201,7 @@ function move() {
                 }
                     // Bloque le joueur s'il atteint les limites de la carte
                     // ou s'il y a un pnj ou une porte
-                    // [5,6,7,8,9,10].includes(5) -> true // [5,6,7,8,9,10].includes(3) -> false
-                    // [5,6,7,8,9,10].includes(map[i][j+1]) -> true (pnj) ou false
-                    // ![5,6,7,8,9,10].includes(map[i][j+1]) -> true (tout ce qui n'est pas pnj)
                     else if (!objetNonTraversable.includes(map[i][j+1])){
-                    // else if (map[i][j+1] !=0 && map[i][j+1] !=7 && map[i][j+1] != 5  && map[i][j+1] != 6){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                         if (objetObtenable.includes(map[i][j+1])){
                             obtenirObjet(map[i][j+1]);
