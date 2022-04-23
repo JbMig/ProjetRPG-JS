@@ -241,13 +241,13 @@ function move() {
                         if (map[i-1][j] == 6 || map[i-1][j] == 3){
                             console.log(inventory)
                             if (inventory.includes('clef') && SpritePosition == 'haut'){
-                                if (map[i-1][j] == 6){
-                                map[i-1][j] = 1
-                                map[i-1][j+1] = 1
-                                }
-                                else {
+                                    if (map[i-1][j] == 6){
                                     map[i-1][j] = 1
-                                    map[i-1][j-1] = 1
+                                    map[i-1][j+1] = 1
+                                    }
+                                else {
+                                    map[i-1][j] = 96
+                                    map[i-1][j-1] = 98
                                 }
                                 affmap()
                                 porteOuvert();
@@ -622,13 +622,21 @@ function affmap(){
             else if (map[i][j] == 23){
                 ctx.drawImage(hole,0,0,1,1,x,y,70,height);
             }
-            // porte droite
+            // porte droite fermée
             else if (map[i][j] == 3){
                 ctx.drawImage(img,46.5,220,18.5,35,x,y,width,70);
             }
-            // porte gauche
+            // porte gauche fermée
                 else if (map[i][j] == 6){
                 ctx.drawImage(img,28,220,18.5,35,x,y,width,70);                
+            }
+            // porte droite ouverte
+            else if (map[i][j] == 96){
+                ctx.drawImage(img,96,220,18.5,35,x,y,width,70);
+            }
+            // porte gauche ouverte
+                else if (map[i][j] == 98){
+                ctx.drawImage(img,80,220,18.5,35,x,y,width,70);                
             }
             // pilier
             else if (map[i][j] == 15){
