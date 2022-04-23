@@ -686,16 +686,32 @@ function affmap(){
             // personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
-                    ctx.drawImage(img,178,78,15,18,x,y,30,35)
+                    ctx.drawImage(img,HeroLengthDroite,78,15,18,x,y,30,35)
+                    HeroLengthDroite = HeroLengthDroite - 15.5;
+                    if (HeroLengthDroite == 130){
+                        HeroLengthDroite = 192;
+                    }
                 }
                 else if (SpritePosition == 'haut'){
-                    ctx.drawImage(img2,52,11,16,20,x,y,30,35)
+                    ctx.drawImage(img2,HeroLengthHaut,11,16,20,x,y,30,35)
+                    HeroLengthHaut = HeroLengthHaut - 15.5;
+                    if (HeroLengthHaut == 5){
+                        HeroLengthHaut = 67;
+                    }
                 }
                 else if (SpritePosition == 'bas'){
-                    ctx.drawImage(img2,67,35,14,20,x,y,30,35)
+                    ctx.drawImage(img2,HeroLengthBas,35,14,20,x,y,30,35)
+                    HeroLengthBas = HeroLengthBas - 15.5;
+                    if (HeroLengthBas == 5){
+                        HeroLengthBas = 67;
+                    }
                 }
                 else {
-                    ctx.drawImage(img3,320,78,15,18,x,y,30,35)
+                    ctx.drawImage(img3,HeroLengthGauche,78,15,18,x,y,30,35)
+                    HeroLengthGauche = HeroLengthGauche - 15.5;
+                    if (HeroLengthGauche == 258){
+                        HeroLengthGauche = 320;
+                    }
                 }
                 
             }
@@ -707,9 +723,13 @@ function affmap(){
             // tous les pnj
 
             // dinosaure
+            
             else if (map[i][j] == 30){
-                ctx.drawImage(img,130,237,16,19,x,y,30,35);
-             
+                ctx.drawImage(img,DinoLength,237,16,19,x,y,30,35);
+                DinoLength = DinoLength + 15.5;
+                if (DinoLength == 192){
+                    DinoLength = 130;
+                }
             }
             // dinette
             else if (map[i][j] == 31){
@@ -728,7 +748,11 @@ function affmap(){
             }
             // golem
             else if (map[i][j] == 34){
-                ctx.drawImage(img,22,275,22,37,x,y,50,70);
+                ctx.drawImage(img,BigMonsterLength,275,22,37,x,y,50,70);
+                BigMonsterLength = BigMonsterLength + 32;
+                if (BigMonsterLength == 182){
+                    BigMonsterLength = 22;
+                }
               
             }
             // ogre
@@ -758,20 +782,35 @@ function affmap(){
             }
             // petit masque monstre
             else if (map[i][j] == 40){
-                ctx.drawImage(img,370,175,15,18,x,y,30,35);
-
+                ctx.drawImage(img,LittleMonsterLength,175,15,18,x,y,30,35);
+                LittleMonsterLength = LittleMonsterLength + 15;
+                if (LittleMonsterLength == 430){
+                    LittleMonsterLength = 370;
+                }
             }
             // petit monstre
             else if (map[i][j] == 41){
-                ctx.drawImage(img,370,208,15,18,x,y,30,35)
+                ctx.drawImage(img,LittleMonsterLength,208,15,18,x,y,30,35)
+                LittleMonsterLength = LittleMonsterLength + 15;
+                if (LittleMonsterLength == 430){
+                    LittleMonsterLength = 370;
+                }
             }
             // Gros ogre
             else if (map[i][j] == 42){
-                ctx.drawImage(img,22,326,22,37,x,y,50,70);  
+                ctx.drawImage(img,BigMonsterLength,326,22,37,x,y,50,70);
+                BigMonsterLength = BigMonsterLength + 32;
+                if (BigMonsterLength == 182){
+                    BigMonsterLength = 22;
+                }
             }
             // Géant rouge
             else if (map[i][j] == 43){
-                ctx.drawImage(img,22,369,22,37,x,y,70,105);  
+                ctx.drawImage(img,BigMonsterLength,369,22,37,x,y,70,105); 
+                BigMonsterLength = BigMonsterLength + 32;
+                if (BigMonsterLength == 182){
+                    BigMonsterLength = 22;
+                }
             }
             // coffre
             else if (map[i][j] == 44){
@@ -816,13 +855,23 @@ let  hole = new Image();
 hole.src = './maps/Tileset/black_square_pnj.png';
 let flag = new Image();
 flag.src = './images_steven/drapeau.PNG'
+
+var DinoLength = 130;
+var LittleMonsterLength = 370;
+var BigMonsterLength = 22;
+var HeroLengthDroite = 192;
+var HeroLengthHaut = 67;
+var HeroLengthBas = 67;
+var HeroLengthGauche = 320;
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
+setInterval(affmap, 100);
 img.onload = function(){affmap();};
 key.onload = function(){affmap();};
 hole.onload = function(){affmap();};
 flag.onload = function(){affmap();};
+
 document.onkeydown = move;
 
 var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles)-[AudioTrimmer.com].mp3');
