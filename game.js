@@ -648,12 +648,16 @@ function affmap(){
             } 
             // fontaine
             else if (map[i][j] == 16){
-                ctx.drawImage(img,79,46,19,23,x,y,width,70);
+                ctx.drawImage(img,78,46,19,23,x,y,width,70);
             }
             // lave
             else if (map[i][j] == 17){
-                ctx.drawImage(img,66,12,11,29,x,y,width,70);
-            }
+                ctx.drawImage(img,LaveLength,15,19,36,x,y,34,70);
+                LaveLength = LaveLength + 16;
+                if (LaveLength == 95){
+                    LaveLength = 63;
+                    }
+                }
             // acide
             else if (map[i][j] == 18){
                 ctx.drawImage(img,63,78,15,19,x,y,width,height);
@@ -871,6 +875,7 @@ var HeroLengthDroite = 192;
 var HeroLengthHaut = 67;
 var HeroLengthBas = 67;
 var HeroLengthGauche = 320;
+var LaveLength = 63;
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
