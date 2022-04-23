@@ -6,6 +6,7 @@
   font-family: "Breathe Fire", sans-serif;
   src: url("/Fonts/BreatheFire-65pg.ttf") format("truetype");
   margin: 0;
+  text-align:center;
 }
 
 /* Font size dialogue */
