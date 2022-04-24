@@ -856,6 +856,7 @@ hole.src = './maps/Tileset/black_square_pnj.png';
 let flag = new Image();
 flag.src = './images/drapeau.PNG'
 
+// Position initiale des images pour les animations
 var DinoLength = 130;
 var LittleMonsterLength = 370;
 var BigMonsterLength = 22;
@@ -864,6 +865,7 @@ var HeroLengthHaut = 67;
 var HeroLengthBas = 67;
 var HeroLengthGauche = 320;
 var LaveLength = 63;
+
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
