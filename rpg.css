@@ -64,7 +64,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./images_steven/dialogue.png");
+  background-image: url("./images/dialogue.png");
   background-size: 100%;
 }
 

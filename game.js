@@ -844,17 +844,17 @@ let CasePlayer = 1;
 
 // permet de mettre une image dans le canvas
 let img = new Image();
-img.src='./images_steven/0x72_DungeonTilesetII_v1.4.png';
+img.src='./images/0x72_DungeonTilesetII_v1.4.png';
 let img2 = new Image();
-img2.src = './images_steven/sprite-haut-bas.png';
+img2.src = './images/sprite-haut-bas.png';
 let img3 = new Image();
-img3.src = './images_steven/image_gauche.png';
+img3.src = './images/image_gauche.png';
 let key = new Image();
-key.src = './images_steven/KeyIcons.png';
+key.src = './images/KeyIcons.png';
 let  hole = new Image();
 hole.src = './maps/Tileset/black_square_pnj.png';
 let flag = new Image();
-flag.src = './images_steven/drapeau.PNG'
+flag.src = './images/drapeau.PNG'
 
 var DinoLength = 130;
 var LittleMonsterLength = 370;
