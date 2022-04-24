@@ -1,6 +1,6 @@
 let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 20, 21, 22, 24, 99];
 let objetObtenable = [ 4 , 60 , 61 , 62, 63];
-let monstreTuable = [ 34,35,40,41,42,43, 50, 51,52,];
+
 
 
 
@@ -232,10 +232,7 @@ function move() {
                         if (objetNonTraversable.includes(map[i-1][j])){
                             isDialogue = true;
                             pnj(map[i-1][j])
-                            if (monstreTuable.includes(map[i-1][j]) && inventory.includes("UltraLaser")) {
-                                map[i-1][j] = 1
-                                affmap()
-                            }
+                            
                         }
                         // Si la case devant le personnage est une porte
                         if (map[i-1][j] == 6 || map[i-1][j] == 3){
@@ -263,10 +260,7 @@ function move() {
                         if (objetNonTraversable.includes(map[i+1][j])){   
                             isDialogue = true;
                             pnj(map[i+1][j])
-                            if (monstreTuable.includes(map[i+1][j]) && inventory.includes("UltraLaser")) {
-                                map[i+1][j] = 1
-                                affmap()
-                            }
+                            
                         }
                         if (map[i+1][j] == 6 || map[i+1][j] == 3){
                             // Si la case devant le personnage est une porte
@@ -296,10 +290,7 @@ function move() {
                         if (objetNonTraversable.includes(map[i][j+1])){
                             isDialogue = true;
                             pnj(map[i][j+1])
-                            if (monstreTuable.includes(map[i][j+1]) && inventory.includes("UltraLaser")) {
-                                map[i][j+1] = 1
-                                affmap()
-                            }
+                           
                         }
                         if (map[i][j+1] == 6 || map[i][j+1] == 3){
                             // Si la case devant le personnage est une porte
@@ -327,10 +318,7 @@ function move() {
                         if (objetNonTraversable.includes(map[i][j-1])){   
                                 isDialogue = true;
                                 pnj(map[i][j-1])
-                                if (monstreTuable.includes(map[i][j-1]) && inventory.includes("UltraLaser")) {
-                                    map[i][j-1] = 1
-                                    affmap()
-                                }
+                                
                         }
                         if (map[i][j-1] == 6 || map[i][j-1] == 3){
                             // Si la case devant le personnage est une porte
