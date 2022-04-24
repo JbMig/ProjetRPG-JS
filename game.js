@@ -1,12 +1,5 @@
 let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 20, 21, 22, 24, 99];
-let objetObtenable = [ 4 , 60 , 61 , 62, 63];
-
-
-
-
-
-
-
+let objetObtenable = [4];
 
 
 function teleport() {
@@ -48,13 +41,6 @@ function teleport() {
 }
 
 
-
-
-
-
-
-
-
 function move() {
     
     action = window.event;
@@ -74,9 +60,8 @@ function move() {
                         map[i][j] = CasePlayer
                         CasePlayer = 1 // pas d'autre choix que de le mettre en brut
                         k--;
-                        map = MapGlobal[k][m]
-                        map[map.length - 1][j] = 2
-                        affmap()
+                        map = MapGlobal[k][m];
+                        map[map.length - 1][j] = 2;
                         return;
                     }
                     // Bloque le joueur s'il atteint les limites de la carte
@@ -85,25 +70,23 @@ function move() {
                         if (objetObtenable.includes(map[i-1][j])){
                             // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                             obtenirObjet(map[i-1][j]);
-                            console.log(inventory)
-                            map[i-1][j] = 1
+                            map[i-1][j] = 1;
                         }
                         // Remplace la case de la clef par une case neutre
                         map[i][j] = CasePlayer;
                         CasePlayer = map[i-1][j]
                         map[i-1][j] = 2;
-                        affmap()
                         return;
                     }    
                 }
             }
         }
-        affmap()
+        affmap();
     }
     // Si le joueur clique sur la flèche bas ou sur 's'
     else if (action.keyCode == '40' || action.keyCode =='83') {
         // Change la position du sprite pour le tourner dans la direction du déplacement
-        SpritePosition ='bas'
+        SpritePosition ='bas';
         // Parcourt la carte pour savoir où est le joueur
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
@@ -111,13 +94,11 @@ function move() {
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
                     if (i==map.length-1){
-                        map[i][j] = CasePlayer
+                        map[i][j] = CasePlayer;
                         CasePlayer = 1 // pas d'autre choix que de le mettre en brut
                         k++;
-                        map = MapGlobal[k][m]
-                        
-                        map[0][j] = 2
-                        affmap()
+                        map = MapGlobal[k][m];
+                        map[0][j] = 2;
                         return;
                     }
                     // Bloque le joueur s'il atteint les limites de la carte
@@ -125,26 +106,25 @@ function move() {
                     else if (!objetNonTraversable.includes(map[i+1][j])){
                     if (objetObtenable.includes(map[i+1][j])){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
-                        obtenirObjet(map[i+1][j])
-                        map[i+1][j] = 1
+                        obtenirObjet(map[i+1][j]);
+                        map[i+1][j] = 1;
                     }
                         // Remplace la case de la clef par une case neutre
-                        map[i][j] = CasePlayer
-                        CasePlayer = map[i+1][j]
+                        map[i][j] = CasePlayer;
+                        CasePlayer = map[i+1][j];
                         map[i+1][j] = 2;
-                        affmap()
                         return;
                     }
                 }
             }
         }
-        affmap()
+        affmap();
     }
 
     // Si le joueur clique sur la flèche gauche ou sur 'q'
     else if (action.keyCode == '37' || action.keyCode =='81') {
         // Change la position du sprite pour le tourner dans la direction du déplacement
-        SpritePosition ='gauche'
+        SpritePosition ='gauche';
         // Parcourt la carte pour savoir où est le joueur
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
@@ -152,12 +132,12 @@ function move() {
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
                     if (j == 0){
-                        map[i][j] = CasePlayer
-                        CasePlayer = 1 // pas d'autre choix que de le mettre en brut
+                        map[i][j] = CasePlayer;
+                        CasePlayer = 1; // pas d'autre choix que de le mettre en brut
                         m--;
-                        map = MapGlobal[k][m]
-                        map[i][map[i].length-1] = 2
-                        affmap()
+                        map = MapGlobal[k][m];
+                        map[i][map[i].length-1] = 2;
+
                         return;
                     }
                     // Bloque le joueur s'il atteint les limites de la carte
@@ -165,16 +145,14 @@ function move() {
                     else if (!objetNonTraversable.includes(map[i][j-1])){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                         if (objetObtenable.includes(map[i][j-1])){
-                            obtenirObjet(map[i][j-1])
-                            map[i][j-1] = 1
+                            obtenirObjet(map[i][j-1]);
+                            map[i][j-1] = 1;
                         }
                         // Remplace la case de la clef par une case neutre
-                        map[i][j] = CasePlayer
-                        CasePlayer = map[i][j-1]
+                        map[i][j] = CasePlayer;
+                        CasePlayer = map[i][j-1];
                         map[i][j-1] = 2;
-                        
                     }
-                    affmap()
                     return;
                 }    
             }         
@@ -184,19 +162,18 @@ function move() {
     // Si le joueur clique sur la flèche droite ou sur 'd'
     else if (action.keyCode == '39' || action.keyCode=='68') {
         // Change la position du sprite pour le tourner dans la direction du déplacement
-        SpritePosition ='droite'
+        SpritePosition ='droite';
         // Parcourt la carte pour savoir où est le joueur
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
                     // Regarde s'il y a un changement de carte
                     if (j==map[i].length-1){
-                        map[i][j] = CasePlayer
-                        CasePlayer = 1 // pas d'autre choix que de le mettre en brut
+                        map[i][j] = CasePlayer;
+                        CasePlayer = 1; // pas d'autre choix que de le mettre en brut
                         m++;
-                        map = MapGlobal[k][m]
-                        map[i][0] = 2
-                        affmap()
+                        map = MapGlobal[k][m];
+                        map[i][0] = 2;
                         return;
                 }
                     // Bloque le joueur s'il atteint les limites de la carte
@@ -205,19 +182,18 @@ function move() {
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                         if (objetObtenable.includes(map[i][j+1])){
                             obtenirObjet(map[i][j+1]);
-                            map[i][j+1] = 1
+                            map[i][j+1] = 1;
                         }
                         // Remplace la case de la clef par une case neutre
-                        map[i][j] = CasePlayer
-                        CasePlayer = map[i][j+1]
+                        map[i][j] = CasePlayer;
+                        CasePlayer = map[i][j+1];
                         map[i][j+1] = 2;
-                        affmap()
                         return;
                     }
                 }
             }
         }
-        affmap()
+        affmap();
     }
     else if (action.keyCode == '73') {
         openInventory();
@@ -236,17 +212,17 @@ function move() {
                         }
                         // Si la case devant le personnage est une porte
                         if (map[i-1][j] == 6 || map[i-1][j] == 3){
-                            console.log(inventory)
+                            console.log(inventory);
                             if (inventory.includes('clef') && SpritePosition == 'haut'){
                                     if (map[i-1][j] == 6){
-                                    map[i-1][j] = 1
-                                    map[i-1][j+1] = 1
+                                    map[i-1][j] = 1;
+                                    map[i-1][j+1] = 1;
                                     }
                                 else {
-                                    map[i-1][j] = 96
-                                    map[i-1][j-1] = 98
+                                    map[i-1][j] = 96;
+                                    map[i-1][j-1] = 98;
                                 }
-                                affmap()
+                                affmap();
                                 porteOuvert();
                                 }
                                 else {
@@ -262,28 +238,7 @@ function move() {
                             pnj(map[i+1][j])
                             
                         }
-                        if (map[i+1][j] == 6 || map[i+1][j] == 3){
-                            // Si la case devant le personnage est une porte
-                  
-                                if (inventory.includes('clef') && SpritePosition == 'bas'){
-                                    if (map[i+1][j] == 6){
-                                        map[i+1][j] = 1
-                                        map[i+1][j+1] = 1
-                                    }
-                                    else {
-                                        map[i+1][j] = 1
-                                        map[i+1][j-1] = 1
-                                    }
-                                    affmap()
-                                    porteOuvert();
-                                    }
-                                else {
-                                    porteFermé();
-                                }    
-                                
-                                
-                            }
-                        }
+                    }
                     
                     if (SpritePosition == "droite") {
                         // Si la case devant le personnage est un pnj
@@ -291,26 +246,6 @@ function move() {
                             isDialogue = true;
                             pnj(map[i][j+1])
                            
-                        }
-                        if (map[i][j+1] == 6 || map[i][j+1] == 3){
-                            // Si la case devant le personnage est une porte
-                     
-                                if (inventory.includes('clef') && SpritePosition == 'droite'){
-                                    if (map[i][j+1] == 6){
-                                        map[i][j+1] = 1
-                                        map[i+1][j+1] =1
-                                    }
-                                    else {
-                                        map[i][j+1] = 1
-                                        map[i-1][j+1] =1
-                                    }
-                                    affmap()
-                                    porteOuvert();
-                                }
-                                else {
-                                    porteFermé();
-                                }
-                        
                         }
                     }
                     if (SpritePosition == "gauche") {
@@ -320,27 +255,8 @@ function move() {
                                 pnj(map[i][j-1])
                                 
                         }
-                        if (map[i][j-1] == 6 || map[i][j-1] == 3){
-                            // Si la case devant le personnage est une porte
-                                if (inventory.includes('clef') && SpritePosition == 'gauche'){
-                                    if (map[i][j-1] == 6){
-                                        map[i][j-1] = 1
-                                        map[i-1][j-1] = 1
-                                    }
-                                    else{
-                                        map[i][j-1] = 1
-                                        map[i+1][j-1] = 1
-                                    }
-                                    
-                                    affmap()
-                                    porteOuvert();
-                                }
-                                else {
-                                    porteFermé();
-                                }
-                        }
+                    }
                 }
-            }
             }
         }
     }
@@ -474,18 +390,6 @@ function porteOuvert () {
 function obtenirObjet (number) {
     if ( number == 4) {
         inventory.push("clef")
-    }
-    else if ( number == 60) {
-        inventory.push("potion rouge")
-    }
-    else if ( number == 61) {
-        inventory.push(" potion bleue")
-    }
-    else if ( number == 62) {
-        inventory.push("potion verte")
-    }
-    else if ( number == 63) {
-        inventory.push("potion jaune")
     }
  }
 
@@ -633,10 +537,15 @@ function affmap(){
             // pilier vide
             else if (map[i][j] == 19){
                 ctx.drawImage(img,81,105,15,11,x,y,width,height);
+                
             } 
             // fontaine
             else if (map[i][j] == 16){
-                ctx.drawImage(img,78,46,19,23,x,y,width,70);
+                ctx.drawImage(img,LaveLength,46,19,23,x,y,width,70);
+                LaveLength = LaveLength + 16;
+                if (LaveLength == 95){
+                    LaveLength = 63;
+                    }
             }
             // lave
             else if (map[i][j] == 17){
@@ -665,24 +574,7 @@ function affmap(){
             // drapeau jaune
             else if (map[i][j] == 24){
             ctx.drawImage(flag,180,7,60,63,x,y,width,height);
-            }
-            // potion rouge
-            else if (map[i][j] == 60){
-                ctx.drawImage(img,290,227,15,13,x,y,30,35);
-            }
-            // potion bleue
-            else if (map[i][j] == 61){
-                ctx.drawImage(img,306,227,15,13,x,y,30,35);
-            }
-            // potion verte
-            else if (map[i][j] == 62){
-                ctx.drawImage(img,322,227,15,13,x,y,30,35);
-            }
-            // potion jaune
-            else if (map[i][j] == 63){
-                ctx.drawImage(img,339,227,15,13,x,y,30,35);
-            }
-            
+            }    
             // personnage
             else if (map[i][j] == 2){
                 if (SpritePosition == 'droite'){
@@ -824,7 +716,6 @@ function affmap(){
         x=0;
         y=y+35;
     }    
-    console.log(map)
 }
 
 
