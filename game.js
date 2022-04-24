@@ -707,7 +707,7 @@ let key = new Image();
 key.src = './images/KeyIcons.png';
 // image pour le void
 let  hole = new Image();
-hole.src = './maps/Tileset/black_square_pnj.png';
+hole.src = './images/black_square.png';
 // image pour les drapeaux sur les murs
 let flag = new Image();
 flag.src = './images/drapeau.PNG'
