@@ -1,4 +1,4 @@
-// arière plan de la carte
+// arière-plan de la carte
 let layer = [
     [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12],
     [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12],
@@ -15,7 +15,7 @@ let layer = [
 ]
 // Toutes les interactions de la carte
 //0/8/9/10/11/12/13 : murs
-//15/19: pilie
+//15/19 : pilier
 //20/21/22/24 : drapeau
 //16 : eau
 //17 : lave
@@ -23,14 +23,14 @@ let layer = [
 //1/ 71-76 : sol
 //44 : coffre
 //77 : crâne
-//78 : troue
+//78 : trou
 //2 : personnage
-//4 : clefs
-//30/34/40/41/42/43: pnj
+//4 : clef
+//30/34/40/41/42/43 : pnj
 //51/52: mur invisible monstre
 //3/6 : porte
-//23 : void
-//99 :mur invisible
+//23 : vide
+//99 : mur invisible
 let MapGlobal = 
 [
    [ // ligne 1
