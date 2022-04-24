@@ -867,7 +867,7 @@ var LaveLength = 63;
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
-setInterval(affmap, 100);
+setInterval(affmap, 150);
 img.onload = function(){affmap();};
 key.onload = function(){affmap();};
 hole.onload = function(){affmap();};
@@ -875,6 +875,7 @@ flag.onload = function(){affmap();};
 
 document.onkeydown = move;
 
+//Musique
 var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles)-[AudioTrimmer.com].mp3');
 audio.play();
 audio.loop = true;
