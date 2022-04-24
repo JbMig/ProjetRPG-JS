@@ -54,6 +54,13 @@
       <div id="bas"></div>
     </div>
 
-    <script src="./switch_page.js"></script>
+    <script>
+		// Load la page indiquée sur appui touche entrée (keycode 13)
+		document.onkeydown = function (e) {
+		if (e.keyCode === 13) {
+			window.location.assign("game.html");
+		}
+		};
+	</script>
   </body>
 </html>
