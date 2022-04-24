@@ -224,10 +224,10 @@ function move() {
                                     map[i-1][j-1] = 98;
                                 }
                                 affmap();
-                                porteOuvert();
+                                porteOuverte();
                                 }
                                 else {
-                                porteFermé();
+                                porteFermee();
                                 }
                             
                         }
@@ -376,15 +376,15 @@ function pnj(chiffre){
 
 
 // Message si on ne possède pas la clé
-function porteFermé () {
+function porteFermee () {
     let zoneTexte = document.querySelector("#bas");
     zoneTexte.innerHTML = "<p id='breathe_fire'> Vous n'avez pas de clé, du balai ! <p/>"
 }
 
 // Message si la porte s'ouvre
-function porteOuvert () {
+function porteOuverte () {
     let zoneTexte = document.querySelector("#bas");
-    zoneTexte.innerHTML = "<p id='breathe_fire'> Félicitation, la porte a disparu !  <p/>"
+    zoneTexte.innerHTML = "<p id='breathe_fire'> Félicitation, la porte est ouverte !  <p/>"
 }
 
 // Pour obtenir un objet lorsqu'on marche dessus
@@ -470,7 +470,7 @@ function affmap(){
             else if (map[i][j] == 77){
                 ctx.drawImage(img,290,323,13,10,x,y,30,20);         
             }
-            //troue
+            // trou
             else if (map[i][j] == 78){
                 ctx.drawImage(img,95,143,16,15,x,y,33,33 );         
             }
@@ -679,36 +679,36 @@ function affmap(){
 
 
 
-// Mis en place du cANVAS
+// Mise en place du canvas
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
-// Initialisation 1ere carte
+// initialisation 1ere carte
 let k = 1;
 let m = 0;
-// mis en place de l'inventaire
+// mise en place de l'inventaire
 let inventory = []
 // Pour que la 1ere case soit du sol
 let CasePlayer = 1;
 
 // permet de mettre une image dans le canvas
 
-//image principale
+// image principale
 let img = new Image();
 img.src='./images/0x72_DungeonTilesetII_v1.4.png';
 // image skin haut et bas
 let img2 = new Image();
 img2.src = './images/sprite-haut-bas.png';
-//image principale tournée à gauche
+// image principale tournée à gauche
 let img3 = new Image();
 img3.src = './images/image_gauche.png';
-//Image de la clef
+// image de la clef
 let key = new Image();
 key.src = './images/KeyIcons.png';
-// Image pour le void
+// image pour le void
 let  hole = new Image();
 hole.src = './maps/Tileset/black_square_pnj.png';
-// Image pour les drapeaux sur les murs
+// image pour les drapeaux sur les murs
 let flag = new Image();
 flag.src = './images/drapeau.PNG'
 
@@ -725,7 +725,7 @@ var LaveLength = 63;
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
-// Créé l'animation
+// Crée l'animation
 setInterval(affmap, 150);
 // Précharge la map
 img.onload = function(){affmap();};
@@ -736,7 +736,7 @@ flag.onload = function(){affmap();};
 // Prends en compte la touche du joueur
 document.onkeydown = move;
 
-//Musique
+// Musique
 var audio = new Audio('sounds/Stardew Valley OST - Mines (Icicles)-[AudioTrimmer.com].mp3');
 audio.play();
 audio.loop = true;
