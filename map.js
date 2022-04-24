@@ -13,7 +13,7 @@ let layer = [
     [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12],
     [12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12]
 ]
-// Toute les interaction de la carte
+// Toutes les interactions de la carte
 //0/10/8/9/11/12/13 : murs
 //15/19: pilier
 //16 : fontaine
