@@ -1,7 +1,9 @@
-let objetNonTraversable = [ 0, 30 , 6 , 7 , 8 , 31, 32 , 33 , 34 , 35 , 36 , 37 , 38 , 39 ,40, 41, 42, 43, 10 , 12 , 11 , 14 , 9, 13, 3, 50, 51, 52, 23, 15, 16, 17, 18, 19, 20, 21, 22, 24, 99];
+// Liste des obstacles
+let objetNonTraversable = [ 0 , 3, 6 , 7 , 8 , 9,  10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 30, 34 ,40, 41, 42, 43, 50, 51, 52,  99];
+// liste des objets ramasable 
 let objetObtenable = [4];
 
-
+//Fonction pour l'animation de fin de jeu
 function teleport() {
 	// on cherche le joueur sur la carte
 	let case_joueur
@@ -40,7 +42,7 @@ function teleport() {
 	}, 3000 + 100*(k+4));
 }
 
-
+// Fonction qui s'occupe du déplacement du joueur et du changement de carte
 function move() {
     
     action = window.event;
@@ -64,8 +66,7 @@ function move() {
                         map[map.length - 1][j] = 2;
                         return;
                     }
-                    // Bloque le joueur s'il atteint les limites de la carte
-                    // ou s'il y a un pnj ou une porte
+                    // Bloque le joueur s'il atteint un obstacle
                     else if (!objetNonTraversable.includes(map[i-1][j])){
                         if (objetObtenable.includes(map[i-1][j])){
                             // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
@@ -101,8 +102,7 @@ function move() {
                         map[0][j] = 2;
                         return;
                     }
-                    // Bloque le joueur s'il atteint les limites de la carte
-                    // ou s'il y a un pnj ou une porte
+                    // Bloque le joueur s'il atteint un obstacle
                     else if (!objetNonTraversable.includes(map[i+1][j])){
                     if (objetObtenable.includes(map[i+1][j])){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
@@ -140,8 +140,7 @@ function move() {
 
                         return;
                     }
-                    // Bloque le joueur s'il atteint les limites de la carte
-                    // ou s'il y a un pnj ou une porte
+                    // Bloque le joueur s'il atteint un obstacle
                     else if (!objetNonTraversable.includes(map[i][j-1])){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                         if (objetObtenable.includes(map[i][j-1])){
@@ -176,8 +175,7 @@ function move() {
                         map[i][0] = 2;
                         return;
                 }
-                    // Bloque le joueur s'il atteint les limites de la carte
-                    // ou s'il y a un pnj ou une porte
+                    // Bloque le joueur s'il atteint un obstacle
                     else if (!objetNonTraversable.includes(map[i][j+1])){
                         // Si le joueur marche sur une clef, cela la rajoute dans son inventaire
                         if (objetObtenable.includes(map[i][j+1])){
@@ -200,6 +198,7 @@ function move() {
     }
     // Barre d'espace ou touche d'action
     else if (action.keyCode == '32'){
+        // Parcours pour trouver le joueur
         for(let i=0; i < map.length; i++){
             for(let j=0; j<map[i].length; j++){
                 if (map[i][j] == 2){
@@ -212,12 +211,14 @@ function move() {
                         }
                         // Si la case devant le personnage est une porte
                         if (map[i-1][j] == 6 || map[i-1][j] == 3){
-                            console.log(inventory);
+                            // Vérifie si le joueur à une clef et s'il est bien tourné vers la porte
                             if (inventory.includes('clef') && SpritePosition == 'haut'){
+                                // remplace le skin de la porte ouverte par la porte ouverte si c'est celle de gauche
                                     if (map[i-1][j] == 6){
-                                    map[i-1][j] = 1;
-                                    map[i-1][j+1] = 1;
+                                    map[i-1][j] = 98;
+                                    map[i-1][j+1] = 96;
                                     }
+                                // remplace le skin de la porte ouverte par la porte ouverte si c'est celle de droite
                                 else {
                                     map[i-1][j] = 96;
                                     map[i-1][j-1] = 98;
@@ -280,8 +281,6 @@ function pnj(chiffre){
 			// dino 1ère salle
 			// C'est le 1er et aussi le 6e et dernier monstre à aller voir.
 			// Il explique la quête au début et permet de terminer le jeu quand on a toutes les potions.
-
-			// inventory = [" potion verte"," potion rouge"," potion bleue"," potion jaune"]		// pour les tests
 			if (inventory.includes(" potion verte"," potion rouge"," potion bleue"," potion jaune")) {
 				zoneTexte.innerHTML = "<p id='breathe_fire' > Dino : La princesse est dans un autre don - Ah ! Tu as rassemblé les 4 potions ! <br>Bravo ! Va donc sauver ta princesse ! </p>";
 				teleport();
@@ -316,6 +315,7 @@ function pnj(chiffre){
 			if (inventory.includes(" potion bleue")) {
                 zoneTexte.innerHTML ="<p id='breathe_fire' > Petit : La princesse est dans un autre donjon. </p>"
             }
+            //génération d'un dialogue aléatoire
             else {
 				const nombre_aléatoire = Math.ceil(Math.random() * 5)
 				if ((nombre_aléatoire == 1) || (nombre_aléatoire == 2)) {
@@ -324,6 +324,7 @@ function pnj(chiffre){
 				else if ((nombre_aléatoire == 3) || (nombre_aléatoire == 4)) {
 					zoneTexte.innerHTML = "<p id='breathe_fire' > Petit : Et non, ce n'est pas moi qui ai la potion ! Essaye un de mes amis. Hihi."
 				}
+                // dialogue qui permet de donner la potion
 				else if (nombre_aléatoire == 5) {
 					zoneTexte.innerHTML = "<p id='breathe_fire' > Petit : Oh mince ! Comment tu as su que c'était moi qui l'avais ? Bon, voilà la potion. Reviens jouer quand tu veux ! Hihi."
                     inventory.push(" potion bleue");
@@ -412,13 +413,7 @@ function suppDialogue () {
     } 
 }
 
-
-
-
-
-
-
-
+// Affichage de la carte
 function affmap(){
     var x=0;
     var y=0;
@@ -475,6 +470,7 @@ function affmap(){
             else if (map[i][j] == 77){
                 ctx.drawImage(img,290,323,13,10,x,y,30,20);         
             }
+            //troue
             else if (map[i][j] == 78){
                 ctx.drawImage(img,95,143,16,15,x,y,33,33 );         
             }
@@ -506,10 +502,6 @@ function affmap(){
             else if (map[i][j] == 13){
                 ctx.drawImage(img,80,141,14,18,x,y,width,height);
             }
-            // intersection 2
-            else if (map[i][j] == 14){
-                ctx.drawImage(img,70,140,10,17,x,y,25,height);
-            }
             // vide
             else if (map[i][j] == 23){
                 ctx.drawImage(hole,0,0,1,1,x,y,70,height);
@@ -539,9 +531,9 @@ function affmap(){
                 ctx.drawImage(img,81,105,15,11,x,y,width,height);
                 
             } 
-            // fontaine
+            // eau
             else if (map[i][j] == 16){
-                ctx.drawImage(img,LaveLength,46,19,23,x,y,width,70);
+                ctx.drawImage(img,LaveLength,46,17,24,x,y,width,70);
                 LaveLength = LaveLength + 16;
                 if (LaveLength == 95){
                     LaveLength = 63;
@@ -575,8 +567,9 @@ function affmap(){
             else if (map[i][j] == 24){
             ctx.drawImage(flag,180,7,60,63,x,y,width,height);
             }    
-            // personnage
+            // héro
             else if (map[i][j] == 2){
+                // tourné vers la droite
                 if (SpritePosition == 'droite'){
                     ctx.drawImage(img,HeroLengthDroite,78,15,18,x,y,30,35)
                     HeroLengthDroite = HeroLengthDroite - 15.5;
@@ -584,6 +577,7 @@ function affmap(){
                         HeroLengthDroite = 192;
                     }
                 }
+                // tourné vers le haut
                 else if (SpritePosition == 'haut'){
                     ctx.drawImage(img2,HeroLengthHaut,11,16,20,x,y,30,35)
                     HeroLengthHaut = HeroLengthHaut - 15.5;
@@ -591,6 +585,7 @@ function affmap(){
                         HeroLengthHaut = 67;
                     }
                 }
+                // tourné vers le bas
                 else if (SpritePosition == 'bas'){
                     ctx.drawImage(img2,HeroLengthBas,35,14,20,x,y,30,35)
                     HeroLengthBas = HeroLengthBas - 15.5;
@@ -599,6 +594,7 @@ function affmap(){
                     }
                 }
                 else {
+                    // tourné vers la gauche
                     ctx.drawImage(img3,HeroLengthGauche,78,15,18,x,y,30,35)
                     HeroLengthGauche = HeroLengthGauche - 15.5;
                     if (HeroLengthGauche == 258){
@@ -615,28 +611,12 @@ function affmap(){
             // tous les pnj
 
             // dinosaure
-            
             else if (map[i][j] == 30){
                 ctx.drawImage(img,DinoLength,237,16,19,x,y,30,35);
                 DinoLength = DinoLength + 15.5;
                 if (DinoLength == 192){
                     DinoLength = 130;
                 }
-            }
-            // dinette
-            else if (map[i][j] == 31){
-                ctx.drawImage(img,128,205,17,25,x,y,30,35);
-
-            }
-            // mage
-            else if (map[i][j] == 32){
-                ctx.drawImage(img,130,177,15,14,x,y,30,35);
-      
-            }
-            // sorcière
-            else if (map[i][j] == 33){
-                ctx.drawImage(img,128,140,15,25,x,y,30,35);
-        
             }
             // golem
             else if (map[i][j] == 34){
@@ -647,31 +627,7 @@ function affmap(){
                 }
               
             }
-            // ogre
-            else if (map[i][j] == 35){
-                ctx.drawImage(img,22,325,20,35,x,y,30,35);
-             
-            }
-            // enfant
-            else if (map[i][j] == 36){
-                ctx.drawImage(img,370,81,13,18,x,y,30,35);
-               
-            }
-            // fée garçon
-            else if (map[i][j] == 37){
-                ctx.drawImage(img,128,17,15,20,x,y,30,35);
-        
-            }
-            // fée fille
-            else if (map[i][j] == 38){
-                ctx.drawImage(img,128,45,15,24,x,y,30,35);
-          
-            }
-            // plante
-            else if (map[i][j] == 39){
-                ctx.drawImage(img,370,143,12,23,x,y,30,35);
-        
-            }
+
             // petit masque monstre
             else if (map[i][j] == 40){
                 ctx.drawImage(img,LittleMonsterLength,175,15,18,x,y,30,35);
@@ -723,27 +679,36 @@ function affmap(){
 
 
 
-
+// Mis en place du cANVAS
 var canvas = document.querySelector('#plateau')
 var ctx = canvas.getContext('2d');
 let SpritePosition = 'droite';
+// Initialisation 1ere carte
 let k = 1;
 let m = 0;
-// gestion de l'inventaire
+// mis en place de l'inventaire
 let inventory = []
+// Pour que la 1ere case soit du sol
 let CasePlayer = 1;
 
 // permet de mettre une image dans le canvas
+
+//image principale
 let img = new Image();
 img.src='./images/0x72_DungeonTilesetII_v1.4.png';
+// image skin haut et bas
 let img2 = new Image();
 img2.src = './images/sprite-haut-bas.png';
+//image principale tournée à gauche
 let img3 = new Image();
 img3.src = './images/image_gauche.png';
+//Image de la clef
 let key = new Image();
 key.src = './images/KeyIcons.png';
+// Image pour le void
 let  hole = new Image();
 hole.src = './maps/Tileset/black_square_pnj.png';
+// Image pour les drapeaux sur les murs
 let flag = new Image();
 flag.src = './images/drapeau.PNG'
 
@@ -760,12 +725,15 @@ var LaveLength = 63;
 // Carte de base
 let map = MapGlobal[k][m]
 affmap()
+// Créé l'animation
 setInterval(affmap, 150);
+// Précharge la map
 img.onload = function(){affmap();};
 key.onload = function(){affmap();};
 hole.onload = function(){affmap();};
 flag.onload = function(){affmap();};
 
+// Prends en compte la touche du joueur
 document.onkeydown = move;
 
 //Musique
